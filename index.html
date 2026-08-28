@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dra. Edlayne Martins | Psicóloga TCC - CRP 13/10822</title>
+    <title>Dra. Edlayne Martins | Psicóloga Clínica - CRP 13/10822</title>
     <style>
         :root {
-            --cor-principal: #2b5b84;
-            --cor-destaque: #3b7ea1;
-            --cor-secundaria: #f0f4f8;
-            --cor-texto: #2d3748;
+            /* Cores extraídas diretamente da sua logo */
+            --cor-principal: #3aa6b9; 
+            --cor-destaque: #2c8a9a;
+            --cor-secundaria: #f0f8f9;
+            --cor-texto: #333333;
             --cor-fundo: #ffffff;
         }
 
@@ -28,32 +29,25 @@
 
         header {
             background-color: var(--cor-secundaria);
-            padding: 60px 20px;
+            padding: 40px 20px;
             text-align: center;
             border-bottom: 3px solid var(--cor-principal);
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            color: var(--cor-principal);
-            margin-bottom: 10px;
+        /* Estilo para a sua Logo */
+        .logo-site {
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px; /* Cantos levemente arredondados */
         }
 
-        header p {
-            font-size: 1.1rem;
+        header p.subtitulo {
+            font-size: 1.15rem;
+            color: #555;
             max-width: 650px;
-            margin: 0 auto 20px;
-        }
-
-        .crp-badge {
-            display: inline-block;
-            background: #e2e8f0;
-            color: var(--cor-principal);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            margin: 10px auto 25px;
+            font-weight: 500;
         }
 
         .btn-whatsapp-header {
@@ -64,6 +58,8 @@
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             transition: background 0.3s, transform 0.2s;
         }
 
@@ -97,11 +93,12 @@
             padding: 25px;
             border-radius: 8px;
             border-top: 4px solid var(--cor-principal);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
 
         .card-servico h3 {
             margin-bottom: 10px;
-            color: var(--cor-principal);
+            color: var(--cor-destaque);
         }
 
         .como-funciona-list {
@@ -168,8 +165,8 @@
         }
 
         .aviso-codigo-etica {
-            background-color: #ebf8ff;
-            border-left: 4px solid var(--cor-destaque);
+            background-color: #e6f7f9;
+            border-left: 4px solid var(--cor-principal);
             padding: 15px;
             border-radius: 4px;
             font-size: 0.9rem;
@@ -206,19 +203,16 @@
             padding: 25px 20px;
             margin-top: 40px;
         }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Dra. Edlayne Martins</h1>
-        <p>Psicologia Clínica focada em Terapia Cognitivo-Comportamental (TCC)</p>
-        <div class="crp-badge">CRP: 13/10822</div>
-        <br>
+        <!-- Sua Logo exibida no topo do site -->
+        <img src="logo.jpg" alt="Dra. Edlayne Martins - Psicóloga Clínica" class="logo-site">
+        
+        <p class="subtitulo">Terapia Cognitivo-Comportamental (TCC) | Atendimento Presencial e Online</p>
+        
         <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-whatsapp-header" target="_blank">Agendar Consulta via WhatsApp</a>
     </header>
 
