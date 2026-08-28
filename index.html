@@ -1,1 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Edlayne Martins | Psicóloga Clínica - CRP 13/10822</title>
 
+    <!-- Fontes Clássicas e Modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Cores fiéis à aquarela da logo */
+            --cor-azul-logo: #3aa6b9;
+            --cor-verde-agua: #79c9c5;
+            --cor-escura: #216a78;
+            --cor-fundo-suave: #f2f9f9;
+            --cor-texto: #2c3537;
+            --cor-texto-suave: #5a6e72;
+            --cor-fundo: #ffffff;
+
+            --fonte-titulo: 'Cormorant Garamond', Georgia, serif;
+            --fonte-corpo: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fonte-corpo);
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- Fundo Aquarela Suave --- */
+        .bg-aquarela-1 {
+            position: absolute;
+            top: -80px;
+            right: -100px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(58, 166, 185, 0.18) 0%, rgba(121, 201, 197, 0.08) 50%, rgba(255, 255, 255, 0) 70%);
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .bg-aquarela-2 {
+            position: absolute;
+            top: 700px;
+            left: -120px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(121, 201, 197, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+            filter: blur(50px);
+            z-index: -1;
+        }
+
+        /* --- Header com a Logo em Destaque no Topo --- */
+        header {
+            position: relative;
+            padding: 60px 20px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(242, 249, 249, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+            border-bottom: 1px solid rgba(58, 166, 185, 0.15);
+        }
+
+        .logo-box {
+            display: inline-block;
+            background: #ffffff;
+            padding: 22px 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(44, 138, 154, 0.1);
+            border: 1px solid rgba(58, 166, 185, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .logo-box img {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .subtitulo-header {
+            font-family: var(--fonte-titulo);
+            font-size: 1.5rem;
+            color: var(--cor-escura);
+            font-weight: 600;
+            max-width: 650px;
+            margin: 0 auto 25px;
+        }
+
+        /* Botão Principal */
+        .btn-whatsapp-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25d366 0%, #1ebc57 100%);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.35);
+        }
+
+        /* --- Seções do Site --- */
+        section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 55px 20px;
+        }
+
+        /* Elemento Decorativo dos Títulos */
+        .titulo-com-icones {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .titulo-com-icones h2 {
+            font-family: var(--fonte-titulo);
+            font-size: 2.3rem;
+            color: var(--cor-escura);
+            font-weight: 700;
+        }
+
+        .icones-divisor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .linha-divisor {
+            height: 1px;
+            width: 50px;
+            background: linear-gradient(90deg, transparent, var(--cor-azul-logo), transparent);
+        }
+
+        /* --- Estilo da Seção Sobre Mim (com a foto) --- */
+        .box-sobre-mim {
+            background: #ffffff;
+            border: 1px solid rgba(58, 166, 185, 0.18);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .foto-container {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .foto-container img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 18px;
+            border: 3px solid var(--cor-azul-logo);
+            box-shadow: 0 12px 28px rgba(58, 166, 185, 0.18);
+            object-fit: cover;
+        }
+
+        .texto-sobre {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .texto-sobre p {
+            color: var(--cor-texto-suave);
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        .texto-sobre p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Grid de Serviços --- */
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card-servico {
+            background: var(--cor-fundo-suave);
+            border: 1px solid rgba(58, 166, 185, 0.2);
+            border-radius: 16px;
+            padding: 30px 25px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .card-servico:hover {
+            transform: translateY(-5px);
+            border-color: var(--cor-azul-logo);
+            box-shadow: 0 12px 30px rgba(58, 166, 185, 0.12);
+        }
+
+        .card-header-icon {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .card-servico h3 {
+            font-family: var(--fonte-titulo);
+            font-size: 1.5rem;
+            color: var(--cor-escura);
+            font-weight: 700;
+        }
+
+        .card-servico p {
+            color: var(--cor-texto-suave);
+            font-size: 0.98rem;
+        }
+
+        /* --- Lista Como Funciona --- */
+        .lista-funciona {
+            list-style: none;
+            display: grid;
+            gap: 15px;
+        }
+
+        .lista-funciona li {
+            background: #ffffff;
+            border: 1px solid rgba(58, 166, 185, 0.15);
+            padding: 18px 22px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bullet-borboleta {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .aviso-etica {
+            margin-top: 30px;
+            background: linear-gradient(135deg, rgba(242, 249, 249, 0.9) 0%, #ffffff 100%);
+            border-left: 4px solid var(--cor-azul-logo);
+            padding: 20px 25px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--cor-escura);
+        }
+
+        /* --- Formulário --- */
+        .form-container {
+            background: #ffffff;
+            border: 1px solid rgba(58, 166, 185, 0.2);
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .form-grupo {
+            margin-bottom: 20px;
+        }
+
+        .form-grupo label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--cor-escura);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-grupo input,
+        .form-grupo textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d4e8ea;
+            border-radius: 8px;
+            font-family: var(--fonte-corpo);
+            font-size: 1rem;
+            background-color: #fcfdfe;
+            transition: all 0.3s;
+        }
+
+        .form-grupo input:focus,
+        .form-grupo textarea:focus {
+            outline: none;
+            border-color: var(--cor-azul-logo);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(58, 166, 185, 0.15);
+        }
+
+        .btn-enviar {
+            width: 100%;
+            background: linear-gradient(135deg, var(--cor-azul-logo) 0%, var(--cor-escura) 100%);
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-enviar:hover {
+            opacity: 0.92;
+        }
+
+        /* --- Botão Flutuante WhatsApp --- */
+        .btn-flutuante {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 999;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-flutuante:hover {
+            transform: scale(1.05);
+            background-color: #1ebc57;
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            background: var(--cor-escura);
+            color: #ffffff;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 50px;
+            border-top: 3px solid var(--cor-azul-logo);
+        }
+
+        footer p.titulo-footer {
+            font-family: var(--fonte-titulo);
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        footer p.sub-footer {
+            font-size: 0.88rem;
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fundo Aquarela -->
+    <div class="bg-aquarela-1"></div>
+    <div class="bg-aquarela-2"></div>
+
+    <!-- Header com Logo no Topo -->
+    <header>
+        <div class="logo-box">
+            <img src="logo.jpg" alt="Edlayne Martins - Psicóloga Clínica" class="logo-img">
+        </div>
+        
+        <p class="subtitulo-header">Terapia Cognitivo-Comportamental (TCC)<br>Atendimento Presencial e Online</p>
+        
+        <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-whatsapp-header" target="_blank">
+            💬 Agendar Consulta via WhatsApp
+        </a>
+    </header>
+
+    <!-- Seção Sobre Mim (com a Foto) -->
+    <section>
+        <div class="titulo-com-icones">
+            <h2>Sobre Mim</h2>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+                <!-- Ícone Borboleta -->
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="4">
+                    <path d="M 50 45 Q 40 20 20 30 Q 15 55 48 52" />
+                    <path d="M 48 54 Q 25 60 30 80 Q 50 80 50 56" />
+                    <path d="M 50 45 Q 60 20 80 30 Q 85 55 52 52" />
+                    <path d="M 52 54 Q 75 60 70 80 Q 50 80 50 56" />
+                </svg>
+                <div class="linha-divisor"></div>
+            </div>
+        </div>
+
+        <div class="box-sobre-mim">
+            <!-- Foto Profissional -->
+            <div class="foto-container">
+                <img src="foto-edlayne.jpg" alt="Dra. Edlayne Martins - Psicóloga Clínica">
+            </div>
+
+            <!-- Texto de Apresentação -->
+            <div class="texto-sobre">
+                <p>Olá! Sou a <strong>Dra. Edlayne Martins</strong> (CRP 13/10822), psicóloga clínica especializada em <strong>Terapia Cognitivo-Comportamental (TCC)</strong>.</p>
+                <p>Meu trabalho é pautado na escuta acolhedora, na ética e em intervenções baseadas em evidências científicas. Auxilio meus pacientes a compreenderem seus padrões de pensamento e comportamento, desenvolvendo estratégias práticas para lidar com a ansiedade, estresse e desafios emocionais.</p>
+                <p>Ofereço um espaço seguro e sigiloso para que você possa desenvolver sua autonomia e qualidade de vida, seja no formato presencial ou online.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Áreas de Atuação -->
+    <section>
+        <div class="titulo-com-icones">
+            <h2>Principais Áreas de Atendimento</h2>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+                <!-- Ícone Cérebro -->
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" stroke="#216a78" stroke-width="4">
+                    <path d="M 50 15 C 30 15 15 30 20 50 C 15 65 25 85 45 88 C 50 88 50 15 50 15 Z" />
+                    <path d="M 35 30 C 25 40 35 50 45 45" />
+                    <path d="M 25 55 C 35 60 40 75 48 70" />
+                </svg>
+                <div class="linha-divisor"></div>
+            </div>
+        </div>
+
+        <div class="grid-servicos">
+            <div class="card-servico">
+                <div class="card-header-icon">
+                    <h3>Ansiedade & Estresse</h3>
+                    <svg width="22" height="22" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="5">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <p>Manejo da ansiedade, prevenção de crises, fobias e desenvolvimento de estratégias de regulação emocional.</p>
+            </div>
+
+            <div class="card-servico">
+                <div class="card-header-icon">
+                    <h3>Depressão & Humor</h3>
+                    <svg width="22" height="22" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="5">
+                        <path d="M 50 15 C 30 15 15 30 20 50 C 15 65 25 85 45 88" />
+                        <path d="M 35 35 C 25 45 40 55 45 50" />
+                    </svg>
+                </div>
+                <p>Reestruturação de pensamentos automáticos, ativação comportamental e resgate da autoestima e vitalidade.</p>
+            </div>
+
+            <div class="card-servico">
+                <div class="card-header-icon">
+                    <h3>Desenvolvimento Pessoal</h3>
+                    <svg width="22" height="22" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="5">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <p>Treino de assertividade, superação da procrastinação, inteligência emocional e resolução de conflitos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Funcionamento -->
+    <section>
+        <div class="titulo-com-icones">
+            <h2>Como Funciona a Terapia?</h2>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="4">
+                    <path d="M 50 45 Q 40 20 20 30 Q 15 55 48 52" />
+                    <path d="M 50 45 Q 60 20 80 30 Q 85 55 52 52" />
+                </svg>
+                <div class="linha-divisor"></div>
+            </div>
+        </div>
+
+        <ul class="lista-funciona">
+            <li>
+                <div class="bullet-borboleta">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="6">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <div><strong>Sessões Individuais:</strong> Encontros semanais de aproximadamente 50 minutos em ambiente seguro.</div>
+            </li>
+            <li>
+                <div class="bullet-borboleta">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="6">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <div><strong>Atendimento Presencial e Online:</strong> Flexibilidade para você realizar suas consultas onde estiver.</div>
+            </li>
+            <li>
+                <div class="bullet-borboleta">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="6">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <div><strong>Objetivos Claros:</strong> Trabalho focado em suas demandas reais para resultados consistentes.</div>
+            </li>
+        </ul>
+
+        <div class="aviso-etica">
+            <strong>🔒 Ética e Confidencialidade:</strong> Todo o atendimento é realizado com estrito respeito ao Código de Ética Profissional do Psicólogo (CFP), garantindo absoluto sigilo.
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section>
+        <div class="titulo-com-icones">
+            <h2>Envie uma Mensagem</h2>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" stroke="#216a78" stroke-width="4">
+                    <path d="M 50 15 C 30 15 15 30 20 50 C 15 65 25 85 45 88 C 50 88 50 15 50 15 Z" />
+                </svg>
+                <div class="linha-divisor"></div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form action="#" method="POST">
+                <div class="form-grupo">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="telefone">WhatsApp / Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(83) 98799-4358" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="mensagem">Mensagem (opcional)</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como posso te ajudar?"></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">ENVIAR MENSAGEM</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-flutuante" target="_blank">
+        💬 Agendar Consulta
+    </a>
+
+    <footer>
+        <p class="titulo-footer">Dra. Edlayne Martins</p>
+        <p class="sub-footer">Psicóloga Clínica • CRP 13/10822</p>
+    </footer>
+
+</body>
+</html>
