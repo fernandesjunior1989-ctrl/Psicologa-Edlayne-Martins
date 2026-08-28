@@ -54,7 +54,7 @@
             filter: drop-shadow(0 0 20px rgba(58, 166, 185, 0.2));
         }
 
-        /* --- CANVAS PARA BORBOLETA E PÓLEN ANIMADOS --- */
+        /* --- CANVAS PARA BORBOLETAS E PÓLEN ANIMADOS --- */
         #canvas-borboleta {
             position: fixed;
             top: 0;
@@ -427,7 +427,6 @@
 </head>
 <body>
 
-    <!-- Marca d'Água central no Fundo -->
     <img src="marca-dagua.png" alt="Marca d'água Cérebro e Borboleta" class="marca-dagua-bg">
 
     <canvas id="canvas-borboleta"></canvas>
@@ -450,7 +449,6 @@
                 💬 Agendar Consulta via WhatsApp
             </a>
 
-            <!-- Bloco de destaques que preenche o início -->
             <div class="grid-hero-features">
                 <div class="feature-card">
                     <span class="feature-icon">🧠</span>
@@ -539,7 +537,7 @@
             observer.observe(section);
         });
 
-        // Voo Delicado e Realista da Borboleta
+        // Sistema de Múltiplas Borboletas (3 Borboletas com voo delicado e realista)
         const canvas = document.getElementById('canvas-borboleta');
         const ctx = canvas.getContext('2d');
 
@@ -550,26 +548,6 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        let bX = window.innerWidth * 0.2;
-        let bY = window.innerHeight * 0.3;
-        let angle = 0;
-        let flap = 0;
-        let flapSpeed = 0.08;
-
-        let targetX = window.innerWidth * 0.7;
-        let targetY = window.innerHeight * 0.4;
-
-        function newTarget() {
-            targetX = Math.random() * (window.innerWidth - 160) + 80;
-            targetY = Math.random() * (window.innerHeight - 160) + 80;
-        }
-
-        window.addEventListener('click', (e) => {
-            targetX = e.clientX;
-            targetY = e.clientY;
-        });
-
-        const pollens = [];
         const colors = [
             'rgba(58, 166, 185, ',
             'rgba(121, 201, 197, ',
@@ -578,8 +556,64 @@
             'rgba(175, 238, 238, '
         ];
 
+        // Criação de um array com 3 borboletas com posições, velocidades e tamanhos variados
+        const butterflies = [
+            {
+                x: window.innerWidth * 0.2,
+                y: window.innerHeight * 0.3,
+                targetX: window.innerWidth * 0.7,
+                targetY: window.innerHeight * 0.4,
+                angle: 0,
+                flap: 0,
+                flapSpeed: 0.07,
+                driftTime: Math.random() * 100,
+                scale: 1.0,
+                colorWing1: 'rgba(58, 166, 185, 0.75)',
+                colorWing2: 'rgba(121, 201, 197, 0.7)'
+            },
+            {
+                x: window.innerWidth * 0.75,
+                y: window.innerHeight * 0.6,
+                targetX: window.innerWidth * 0.3,
+                targetY: window.innerHeight * 0.25,
+                angle: 0,
+                flap: 2,
+                flapSpeed: 0.085,
+                driftTime: Math.random() * 100,
+                scale: 0.85,
+                colorWing1: 'rgba(121, 201, 197, 0.75)',
+                colorWing2: 'rgba(58, 166, 185, 0.7)'
+            },
+            {
+                x: window.innerWidth * 0.5,
+                y: window.innerHeight * 0.75,
+                targetX: window.innerWidth * 0.85,
+                targetY: window.innerHeight * 0.65,
+                angle: 0,
+                flap: 4,
+                flapSpeed: 0.065,
+                driftTime: Math.random() * 100,
+                scale: 0.9,
+                colorWing1: 'rgba(90, 190, 200, 0.75)',
+                colorWing2: 'rgba(100, 215, 195, 0.7)'
+            }
+        ];
+
+        const pollens = [];
+
+        function newTarget(b) {
+            b.targetX = Math.random() * (window.innerWidth - 160) + 80;
+            b.targetY = Math.random() * (window.innerHeight - 160) + 80;
+        }
+
+        // Ao clicar, a borboleta principal (a primeira) é atraída para o ponto do clique
+        window.addEventListener('click', (e) => {
+            butterflies[0].targetX = e.clientX;
+            butterflies[0].targetY = e.clientY;
+        });
+
         function createPollen(x, y) {
-            if (Math.random() < 0.5) {
+            if (Math.random() < 0.4) {
                 pollens.push({
                     x: x + (Math.random() - 0.5) * 8,
                     y: y + (Math.random() - 0.5) * 8,
@@ -593,20 +627,22 @@
             }
         }
 
-        function drawWingHalf(scaleX) {
+        function drawWingHalf(scaleX, scale, c1, c2) {
             ctx.save();
-            ctx.scale(scaleX, 1);
+            ctx.scale(scaleX * scale, scale);
 
+            // Asa Superior Delicada
             ctx.beginPath();
             ctx.moveTo(0, 0);
             ctx.bezierCurveTo(-18, -20, -28, -8, -16, 8);
             ctx.bezierCurveTo(-10, 12, -4, 8, 0, 0);
-            ctx.fillStyle = 'rgba(58, 166, 185, 0.75)';
+            ctx.fillStyle = c1;
             ctx.fill();
             ctx.strokeStyle = 'rgba(33, 106, 120, 0.5)';
             ctx.lineWidth = 0.6;
             ctx.stroke();
 
+            // Detalhe interno da Asa Superior
             ctx.beginPath();
             ctx.moveTo(0, 0);
             ctx.quadraticCurveTo(-14, -10, -12, 2);
@@ -614,11 +650,12 @@
             ctx.lineWidth = 0.5;
             ctx.stroke();
 
+            // Asa Inferior Delicada
             ctx.beginPath();
             ctx.moveTo(0, 2);
             ctx.bezierCurveTo(-16, 8, -20, 24, -4, 18);
             ctx.bezierCurveTo(-1, 14, 0, 6, 0, 2);
-            ctx.fillStyle = 'rgba(121, 201, 197, 0.7)';
+            ctx.fillStyle = c2;
             ctx.fill();
             ctx.strokeStyle = 'rgba(33, 106, 120, 0.5)';
             ctx.lineWidth = 0.6;
@@ -627,26 +664,28 @@
             ctx.restore();
         }
 
-        function drawButterfly(x, y, angle, flapState) {
+        function drawButterfly(b) {
             ctx.save();
-            ctx.translate(x, y);
-            ctx.rotate(angle);
+            ctx.translate(b.x, b.y);
+            ctx.rotate(b.angle);
 
-            const wingScaleX = Math.sin(flapState);
+            const wingScaleX = Math.sin(b.flap);
 
-            drawWingHalf(wingScaleX);
-            drawWingHalf(-wingScaleX);
+            drawWingHalf(wingScaleX, b.scale, b.colorWing1, b.colorWing2);
+            drawWingHalf(-wingScaleX, b.scale, b.colorWing1, b.colorWing2);
 
+            // Corpo Fino e Delicado
             ctx.beginPath();
-            ctx.ellipse(0, 2, 1.2, 9, 0, 0, Math.PI * 2);
+            ctx.ellipse(0, 2, 1.2 * b.scale, 9 * b.scale, 0, 0, Math.PI * 2);
             ctx.fillStyle = '#216a78';
             ctx.fill();
 
+            // Antenas Finais e Suaves
             ctx.beginPath();
-            ctx.moveTo(-0.5, -6);
-            ctx.quadraticCurveTo(-4, -13, -7, -15);
-            ctx.moveTo(0.5, -6);
-            ctx.quadraticCurveTo(4, -13, 7, -15);
+            ctx.moveTo(-0.5 * b.scale, -6 * b.scale);
+            ctx.quadraticCurveTo(-4 * b.scale, -13 * b.scale, -7 * b.scale, -15 * b.scale);
+            ctx.moveTo(0.5 * b.scale, -6 * b.scale);
+            ctx.quadraticCurveTo(4 * b.scale, -13 * b.scale, 7 * b.scale, -15 * b.scale);
             ctx.strokeStyle = '#216a78';
             ctx.lineWidth = 0.6;
             ctx.stroke();
@@ -654,38 +693,41 @@
             ctx.restore();
         }
 
-        let driftTime = 0;
-
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            driftTime += 0.02;
+            // Atualização de cada borboleta
+            butterflies.forEach(b => {
+                b.driftTime += 0.02;
 
-            const driftX = Math.sin(driftTime * 0.7) * 0.8;
-            const driftY = Math.cos(driftTime * 0.5) * 0.8;
+                const driftX = Math.sin(b.driftTime * 0.7) * 0.8;
+                const driftY = Math.cos(b.driftTime * 0.5) * 0.8;
 
-            const dx = (targetX + driftX) - bX;
-            const dy = (targetY + driftY) - bY;
-            const dist = Math.hypot(dx, dy);
+                const dx = (b.targetX + driftX) - b.x;
+                const dy = (b.targetY + driftY) - b.y;
+                const dist = Math.hypot(dx, dy);
 
-            if (dist < 40) {
-                newTarget();
-            }
+                if (dist < 40) {
+                    newTarget(b);
+                }
 
-            bX += dx * 0.005;
-            bY += dy * 0.005;
+                b.x += dx * 0.005;
+                b.y += dy * 0.005;
 
-            const desiredAngle = Math.atan2(dy, dx) + Math.PI / 2;
-            let diff = desiredAngle - angle;
-            
-            while (diff < -Math.PI) diff += Math.PI * 2;
-            while (diff > Math.PI) diff -= Math.PI * 2;
-            angle += diff * 0.03;
+                const desiredAngle = Math.atan2(dy, dx) + Math.PI / 2;
+                let diff = desiredAngle - b.angle;
+                
+                while (diff < -Math.PI) diff += Math.PI * 2;
+                while (diff > Math.PI) diff -= Math.PI * 2;
+                b.angle += diff * 0.03;
 
-            flap += flapSpeed;
+                b.flap += b.flapSpeed;
 
-            createPollen(bX, bY);
+                createPollen(b.x, b.y);
+                drawButterfly(b);
+            });
 
+            // Atualização e desenho do pólen no rastro
             for (let i = pollens.length - 1; i >= 0; i--) {
                 const p = pollens[i];
                 p.x += p.vx;
@@ -706,8 +748,6 @@
                 ctx.fill();
                 ctx.restore();
             }
-
-            drawButterfly(bX, bY, angle, flap);
 
             requestAnimationFrame(animate);
         }
