@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dra. Edlayne Martins | Psicóloga Clínica - CRP 13/10822</title>
 
-    <!-- Fontes Clássicas e Elegantes (Google Fonts) -->
+    <!-- Fontes Clássicas e Modernas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Palette baseada na sua logo */
-            --cor-base: #3aa6b9;
+            /* Cores fiéis à aquarela da logo */
+            --cor-azul-logo: #3aa6b9;
+            --cor-verde-agua: #79c9c5;
             --cor-escura: #216a78;
-            --cor-clara: #eaf6f7;
-            --cor-dourado-suave: #cbb26a;
-            --cor-texto-escuro: #2b3537;
-            --cor-texto-suave: #5c6e72;
-            --cor-fundo-site: #fcfdfd;
+            --cor-fundo-suave: #f2f9f9;
+            --cor-texto: #2c3537;
+            --cor-texto-suave: #5a6e72;
+            --cor-fundo: #ffffff;
 
-            --fonte-classica: 'Cormorant Garamond', Georgia, serif;
-            --fonte-moderna: 'Plus Jakarta Sans', sans-serif;
+            --fonte-titulo: 'Cormorant Garamond', Georgia, serif;
+            --fonte-corpo: 'Plus Jakarta Sans', sans-serif;
         }
 
         * {
@@ -32,80 +32,72 @@
         }
 
         body {
-            font-family: var(--fonte-moderna);
-            background-color: var(--cor-fundo-site);
-            color: var(--cor-texto-escuro);
+            font-family: var(--fonte-corpo);
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
             line-height: 1.8;
             overflow-x: hidden;
         }
 
-        /* --- Fundo com Formas Orgânicas Modernas (Aquarela) --- */
-        .bg-blob-1 {
+        /* --- Fundo Aquarela Suave nas Laterais --- */
+        .bg-aquarela-1 {
             position: absolute;
-            top: -100px;
+            top: -80px;
             right: -100px;
             width: 450px;
             height: 450px;
-            background: radial-gradient(circle, rgba(58, 166, 185, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+            background: radial-gradient(circle, rgba(58, 166, 185, 0.18) 0%, rgba(121, 201, 197, 0.08) 50%, rgba(255, 255, 255, 0) 70%);
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .bg-aquarela-2 {
+            position: absolute;
+            top: 700px;
+            left: -120px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(121, 201, 197, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
             filter: blur(50px);
             z-index: -1;
         }
 
-        .bg-blob-2 {
-            position: absolute;
-            top: 600px;
-            left: -150px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(121, 201, 197, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
-            filter: blur(60px);
-            z-index: -1;
-        }
-
-        /* --- Header Clássico & Moderno --- */
+        /* --- Header com a Logo da Dra. Edlayne --- */
         header {
             position: relative;
-            padding: 60px 20px 50px;
+            padding: 50px 20px 40px;
             text-align: center;
-            background: linear-gradient(180deg, rgba(234, 246, 247, 0.6) 0%, rgba(252, 253, 253, 0) 100%);
+            background: linear-gradient(180deg, rgba(242, 249, 249, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
             border-bottom: 1px solid rgba(58, 166, 185, 0.15);
         }
 
-        /* Moldura de Vidro Translúcida (Glassmorphism) para a Logo */
-        .logo-card {
+        .logo-box {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(58, 166, 185, 0.25);
+            background: #ffffff;
             padding: 20px 30px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(44, 138, 154, 0.08);
-            margin-bottom: 25px;
-            transition: transform 0.4s ease;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(44, 138, 154, 0.08);
+            border: 1px solid rgba(58, 166, 185, 0.2);
+            margin-bottom: 20px;
         }
 
-        .logo-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .logo-img {
-            max-width: 290px;
+        .logo-box img {
+            max-width: 280px;
             height: auto;
             display: block;
         }
 
         .subtitulo-header {
-            font-family: var(--fonte-classica);
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-family: var(--fonte-titulo);
+            font-size: 1.45rem;
             color: var(--cor-escura);
-            letter-spacing: 0.5px;
-            max-width: 700px;
+            font-weight: 600;
+            max-width: 650px;
             margin: 0 auto 25px;
         }
 
-        /* Botão Moderno de Alta Conversão */
-        .btn-principal {
+        /* Botão Principal */
+        .btn-whatsapp-header {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -116,71 +108,62 @@
             padding: 14px 32px;
             border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+            transition: all 0.3s ease;
         }
 
-        .btn-principal:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 14px 30px rgba(37, 211, 102, 0.35);
+        .btn-whatsapp-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.35);
         }
 
-        /* --- Estrutura das Seções --- */
+        /* --- Seções do Site --- */
         section {
             max-width: 960px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 55px 20px;
         }
 
-        .titulo-secao {
+        /* Elemento Decorativo dos Títulos (Cérebro + Borboleta) */
+        .titulo-com-icones {
             text-align: center;
-            margin-bottom: 40px;
-            position: relative;
+            margin-bottom: 35px;
         }
 
-        .titulo-secao h2 {
-            font-family: var(--fonte-classica);
+        .titulo-com-icones h2 {
+            font-family: var(--fonte-titulo);
             font-size: 2.3rem;
             color: var(--cor-escura);
             font-weight: 700;
-            letter-spacing: -0.5px;
         }
 
-        /* Divisores Neoclássicos com Detalhe de Borboleta */
-        .divisor-classico {
+        .icones-divisor {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 8px;
         }
 
-        .divisor-classico::before,
-        .divisor-classico::after {
-            content: "";
+        .linha-divisor {
             height: 1px;
-            width: 60px;
-            background: linear-gradient(90deg, transparent, var(--cor-base), transparent);
+            width: 50px;
+            background: linear-gradient(90deg, transparent, var(--cor-azul-logo), transparent);
         }
 
-        .divisor-classico span {
-            font-size: 1.1rem;
-            color: var(--cor-base);
-        }
-
-        /* --- Texto Institucional / Apresentação --- */
+        /* --- Estilo dos Cards e Conteúdo --- */
         .box-apresentacao {
             background: #ffffff;
-            border: 1px solid rgba(58, 166, 185, 0.12);
-            padding: 40px;
+            border: 1px solid rgba(58, 166, 185, 0.15);
+            padding: 35px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
             position: relative;
         }
 
         .box-apresentacao p {
             color: var(--cor-texto-suave);
-            font-size: 1.08rem;
+            font-size: 1.05rem;
             margin-bottom: 15px;
         }
 
@@ -188,7 +171,6 @@
             margin-bottom: 0;
         }
 
-        /* --- Grid de Serviços (Cards Modernos) --- */
         .grid-servicos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -196,37 +178,31 @@
         }
 
         .card-servico {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(58, 166, 185, 0.18);
-            border-radius: 18px;
-            padding: 35px 25px;
+            background: var(--cor-fundo-suave);
+            border: 1px solid rgba(58, 166, 185, 0.2);
+            border-radius: 16px;
+            padding: 30px 25px;
             position: relative;
-            transition: all 0.35s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
-        }
-
-        .card-servico::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 20px;
-            right: 20px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--cor-base), var(--cor-escura));
-            border-radius: 0 0 4px 4px;
+            transition: all 0.3s ease;
         }
 
         .card-servico:hover {
-            transform: translateY(-6px);
-            border-color: var(--cor-base);
-            box-shadow: 0 15px 35px rgba(58, 166, 185, 0.12);
+            transform: translateY(-5px);
+            border-color: var(--cor-azul-logo);
+            box-shadow: 0 12px 30px rgba(58, 166, 185, 0.12);
+        }
+
+        .card-header-icon {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
         }
 
         .card-servico h3 {
-            font-family: var(--fonte-classica);
+            font-family: var(--fonte-titulo);
             font-size: 1.5rem;
             color: var(--cor-escura);
-            margin-bottom: 12px;
             font-weight: 700;
         }
 
@@ -245,45 +221,36 @@
         .lista-funciona li {
             background: #ffffff;
             border: 1px solid rgba(58, 166, 185, 0.15);
-            padding: 20px 25px;
+            padding: 18px 22px;
             border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 18px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+            gap: 15px;
         }
 
-        .icone-lista {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--cor-clara);
-            color: var(--cor-escura);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
+        .bullet-borboleta {
+            width: 28px;
+            height: 28px;
             flex-shrink: 0;
         }
 
         .aviso-etica {
             margin-top: 30px;
-            background: linear-gradient(135deg, rgba(234, 246, 247, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
-            border-left: 4px solid var(--cor-base);
+            background: linear-gradient(135deg, rgba(242, 249, 249, 0.9) 0%, #ffffff 100%);
+            border-left: 4px solid var(--cor-azul-logo);
             padding: 20px 25px;
             border-radius: 8px;
             font-size: 0.95rem;
             color: var(--cor-escura);
         }
 
-        /* --- Formulário Elegante --- */
+        /* --- Formulário --- */
         .form-container {
             background: #ffffff;
             border: 1px solid rgba(58, 166, 185, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.03);
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
         }
 
         .form-grupo {
@@ -292,10 +259,10 @@
 
         .form-grupo label {
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
             color: var(--cor-escura);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -303,40 +270,39 @@
         .form-grupo input,
         .form-grupo textarea {
             width: 100%;
-            padding: 14px 18px;
-            border: 1px solid #d8ecee;
-            border-radius: 10px;
-            font-family: var(--fonte-moderna);
+            padding: 12px 16px;
+            border: 1px solid #d4e8ea;
+            border-radius: 8px;
+            font-family: var(--fonte-corpo);
             font-size: 1rem;
-            background-color: #fbfdfd;
+            background-color: #fcfdfe;
             transition: all 0.3s;
         }
 
         .form-grupo input:focus,
         .form-grupo textarea:focus {
             outline: none;
-            border-color: var(--cor-base);
+            border-color: var(--cor-azul-logo);
             background-color: #ffffff;
-            box-shadow: 0 0 0 4px rgba(58, 166, 185, 0.12);
+            box-shadow: 0 0 0 3px rgba(58, 166, 185, 0.15);
         }
 
         .btn-enviar {
             width: 100%;
-            background: linear-gradient(135deg, var(--cor-base) 0%, var(--cor-escura) 100%);
+            background: linear-gradient(135deg, var(--cor-azul-logo) 0%, var(--cor-escura) 100%);
             color: #ffffff;
             border: none;
-            padding: 16px;
-            border-radius: 10px;
+            padding: 15px;
+            border-radius: 8px;
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
             letter-spacing: 0.5px;
-            transition: opacity 0.3s ease, transform 0.2s;
+            transition: opacity 0.3s;
         }
 
         .btn-enviar:hover {
-            opacity: 0.95;
-            transform: translateY(-1px);
+            opacity: 0.92;
         }
 
         /* --- Botão Flutuante WhatsApp --- */
@@ -346,16 +312,16 @@
             right: 25px;
             background-color: #25d366;
             color: #ffffff;
-            padding: 14px 24px;
+            padding: 12px 22px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             z-index: 999;
-            transition: all 0.3s ease;
+            transition: transform 0.2s, background-color 0.2s;
         }
 
         .btn-flutuante:hover {
@@ -368,112 +334,178 @@
             background: var(--cor-escura);
             color: #ffffff;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 3px solid var(--cor-base);
+            padding: 35px 20px;
+            margin-top: 50px;
+            border-top: 3px solid var(--cor-azul-logo);
         }
 
         footer p.titulo-footer {
-            font-family: var(--fonte-classica);
+            font-family: var(--fonte-titulo);
             font-size: 1.4rem;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         footer p.sub-footer {
-            font-size: 0.9rem;
-            opacity: 0.8;
+            font-size: 0.88rem;
+            opacity: 0.85;
         }
     </style>
 </head>
 <body>
 
-    <!-- Elementos visuais de aquarela no fundo (Modern Blobs) -->
-    <div class="bg-blob-1"></div>
-    <div class="bg-blob-2"></div>
+    <!-- Fundo de Mancha Aquarela (Inspirado na sua Logo) -->
+    <div class="bg-aquarela-1"></div>
+    <div class="bg-aquarela-2"></div>
 
     <header>
-        <div class="logo-card">
-            <img src="logo.jpg" alt="Dra. Edlayne Martins - Psicóloga Clínica" class="logo-img">
+        <div class="logo-box">
+            <img src="logo.jpg" alt="Edlayne Martins - Psicóloga Clínica" class="logo-img">
         </div>
         
-        <p class="subtitulo-header">Terapia Cognitivo-Comportamental (TCC)<br>Atendimento Presencial & Online</p>
+        <p class="subtitulo-header">Terapia Cognitivo-Comportamental (TCC)<br>Atendimento Presencial e Online</p>
         
-        <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-principal" target="_blank">
-            <span>💬 Agendar Consulta via WhatsApp</span>
+        <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-whatsapp-header" target="_blank">
+            💬 Agendar Consulta via WhatsApp
         </a>
     </header>
 
+    <!-- Seção 1: Abordagem Terapêutica -->
     <section>
-        <div class="titulo-secao">
+        <div class="titulo-com-icones">
             <h2>A Abordagem Terapêutica</h2>
-            <div class="divisor-classico">
-                <span>🦋</span>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+                <!-- Ícone Borboleta Desenho -->
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="4">
+                    <path d="M 50 45 Q 40 20 20 30 Q 15 55 48 52" />
+                    <path d="M 48 54 Q 25 60 30 80 Q 50 80 50 56" />
+                    <path d="M 50 45 Q 60 20 80 30 Q 85 55 52 52" />
+                    <path d="M 52 54 Q 75 60 70 80 Q 50 80 50 56" />
+                </svg>
+                <div class="linha-divisor"></div>
             </div>
         </div>
 
         <div class="box-apresentacao">
-            <p>A <strong>Terapia Cognitivo-Comportamental (TCC)</strong> é uma abordagem científica, estruturada e focada no presente. A premissa fundamental da TCC é que não são as situações em si que nos perturbam, mas sim a forma como as interpretamos.</p>
-            <p>Em um ambiente acolhedor e livre de julgamentos, trabalharemos em conjunto para identificar padrões de pensamentos e comportamentos que causam sofrimento, construindo novas estratégias para proporcionar equilíbrio emocional e transformação pessoal.</p>
+            <p>A <strong>Terapia Cognitivo-Comportamental (TCC)</strong> é uma abordagem prática, transparente e fundamentada cientificamente. O foco principal é compreender como a forma como pensamos influencia diretamente o que sentimos e como agimos.</p>
+            <p>Através de um processo colaborativo e acolhedor, identificamos crenças e hábitos disfuncionais para construir novas ferramentas emocionais, promovendo autoconhecimento, autonomia e equilíbrio.</p>
         </div>
     </section>
 
+    <!-- Seção 2: Áreas de Atuação -->
     <section>
-        <div class="titulo-secao">
-            <h2>Áreas de Atuação</h2>
-            <div class="divisor-classico">
-                <span>🧠</span>
+        <div class="titulo-com-icones">
+            <h2>Principais Áreas de Atendimento</h2>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+                <!-- Ícone Cérebro Desenho -->
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" stroke="#216a78" stroke-width="4">
+                    <path d="M 50 15 C 30 15 15 30 20 50 C 15 65 25 85 45 88 C 50 88 50 15 50 15 Z" />
+                    <path d="M 35 30 C 25 40 35 50 45 45" />
+                    <path d="M 25 55 C 35 60 40 75 48 70" />
+                </svg>
+                <div class="linha-divisor"></div>
             </div>
         </div>
 
         <div class="grid-servicos">
             <div class="card-servico">
-                <h3>Ansiedade & Estresse</h3>
-                <p>Desenvolvimento de habilidades para manejo da ansiedade generalizada, prevenção de crises de pânico e regulação do estresse cotidiano.</p>
+                <div class="card-header-icon">
+                    <h3>Ansiedade & Estresse</h3>
+                    <!-- Borboleta no Card -->
+                    <svg width="22" height="22" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="5">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <p>Manejo da ansiedade, prevenção de crises, fobias e desenvolvimento de estratégias de regulação emocional.</p>
             </div>
+
             <div class="card-servico">
-                <h3>Depressão & Transtornos do Humor</h3>
-                <p>Reestruturação de pensamentos disfuncionais, ativação comportamental e resgate da qualidade de vida e autoestima.</p>
+                <div class="card-header-icon">
+                    <h3>Depressão & Humor</h3>
+                    <!-- Cérebro no Card -->
+                    <svg width="22" height="22" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="5">
+                        <path d="M 50 15 C 30 15 15 30 20 50 C 15 65 25 85 45 88" />
+                        <path d="M 35 35 C 25 45 40 55 45 50" />
+                    </svg>
+                </div>
+                <p>Reestruturação de pensamentos automáticos, ativação comportamental e resgate da autoestima e vitalidade.</p>
             </div>
+
             <div class="card-servico">
-                <h3>Desenvolvimento Pessoal</h3>
-                <p>Aprimoramento da assertividade, fortalecimento da autocompaixão, inteligência emocional e superação da procrastinação.</p>
+                <div class="card-header-icon">
+                    <h3>Desenvolvimento Pessoal</h3>
+                    <!-- Borboleta no Card -->
+                    <svg width="22" height="22" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="5">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <p>Treino de assertividade, superação da procrastinação, inteligência emocional e resolução de conflitos.</p>
             </div>
         </div>
     </section>
 
+    <!-- Seção 3: Funcionamento -->
     <section>
-        <div class="titulo-secao">
-            <h2>Como Funciona o Atendimento</h2>
-            <div class="divisor-classico">
-                <span>🦋</span>
+        <div class="titulo-com-icones">
+            <h2>Como Funciona a Terapia?</h2>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="4">
+                    <path d="M 50 45 Q 40 20 20 30 Q 15 55 48 52" />
+                    <path d="M 50 45 Q 60 20 80 30 Q 85 55 52 52" />
+                </svg>
+                <div class="linha-divisor"></div>
             </div>
         </div>
 
         <ul class="lista-funciona">
             <li>
-                <div class="icone-lista">1</div>
-                <div><strong>Sessões de 50 minutos:</strong> Encontros semanais estruturados e direcionados às suas necessidades específicas.</div>
+                <div class="bullet-borboleta">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="6">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <div><strong>Sessões Individuais:</strong> Encontros semanais de aproximadamente 50 minutos em ambiente seguro.</div>
             </li>
             <li>
-                <div class="icone-lista">2</div>
-                <div><strong>Plano Terapêutico Personalizado:</strong> Metas claras construídas em colaboração entre psicóloga e paciente.</div>
+                <div class="bullet-borboleta">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="6">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <div><strong>Atendimento Presencial e Online:</strong> Flexibilidade para você realizar suas consultas onde estiver.</div>
             </li>
             <li>
-                <div class="icone-lista">3</div>
-                <div><strong>Modalidades Flexíveis:</strong> Consultas presenciais no consultório ou online com total comodidade.</div>
+                <div class="bullet-borboleta">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#3aa6b9" stroke-width="6">
+                        <path d="M 50 45 Q 35 15 15 30 Q 10 60 48 52" />
+                        <path d="M 50 45 Q 65 15 85 30 Q 90 60 52 52" />
+                    </svg>
+                </div>
+                <div><strong>Objetivos Claros:</strong> Trabalho focado em suas demandas reais para resultados consistentes.</div>
             </li>
         </ul>
 
         <div class="aviso-etica">
-            <strong>🔒 Ética e Confidencialidade:</strong> Todos os atendimentos seguem rigorosamente o Código de Ética Profissional do Psicólogo, garantindo sigilo absoluto das informações.
+            <strong>🔒 Ética e Confidencialidade:</strong> Todo o atendimento é realizado com estrito respeito ao Código de Ética Profissional do Psicólogo (CFP), garantindo absoluto sigilo.
         </div>
     </section>
 
+    <!-- Seção 4: Contato -->
     <section>
-        <div class="titulo-secao">
-            <h2>Entre em Contato</h2>
-            <div class="divisor-classico">
-                <span>💬</span>
+        <div class="titulo-com-icones">
+            <h2>Envie uma Mensagem</h2>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" stroke="#216a78" stroke-width="4">
+                    <path d="M 50 15 C 30 15 15 30 20 50 C 15 65 25 85 45 88 C 50 88 50 15 50 15 Z" />
+                </svg>
+                <div class="linha-divisor"></div>
             </div>
         </div>
 
@@ -481,7 +513,7 @@
             <form action="#" method="POST">
                 <div class="form-grupo">
                     <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
                 </div>
                 <div class="form-grupo">
                     <label for="email">E-mail</label>
@@ -492,21 +524,21 @@
                     <input type="tel" id="telefone" name="telefone" placeholder="(83) 98799-4358" required>
                 </div>
                 <div class="form-grupo">
-                    <label for="mensagem">Mensagem</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva brevemente como posso te ajudar..."></textarea>
+                    <label for="mensagem">Mensagem (opcional)</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como posso te ajudar?"></textarea>
                 </div>
                 <button type="submit" class="btn-enviar">ENVIAR MENSAGEM</button>
             </form>
         </div>
     </section>
 
-    <!-- Botão Flutuante Moderno do WhatsApp -->
+    <!-- Botão WhatsApp Flutuante -->
     <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-flutuante" target="_blank">
         💬 Agendar Consulta
     </a>
 
     <footer>
-        <p class="titulo-footer">Dra. Edlayne Martins</p>
+        <p class="titulo-footer">Edlayne Martins</p>
         <p class="sub-footer">Psicóloga Clínica • CRP 13/10822</p>
     </footer>
 
