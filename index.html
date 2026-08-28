@@ -125,7 +125,7 @@
             line-height: 1.4;
         }
 
-        /* Botão Principal */
+        /* Botão Principal com Efeito Pulsante Interativo */
         .btn-whatsapp-header {
             display: inline-flex;
             align-items: center;
@@ -134,25 +134,40 @@
             color: #ffffff;
             font-weight: 600;
             font-size: 1rem;
-            padding: 14px 32px;
+            padding: 16px 36px;
             border-radius: 50px;
             text-decoration: none;
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse-green 2.5s infinite;
         }
 
         .btn-whatsapp-header:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.35);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 14px 28px rgba(37, 211, 102, 0.45);
         }
 
-        /* --- Seções do Site --- */
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- Seções do Site com Animações Scroll Reveal --- */
         section {
             position: relative;
             z-index: 1;
             max-width: 960px;
             margin: 0 auto;
             padding: 55px 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .titulo-com-icones {
@@ -176,23 +191,34 @@
         }
 
         .linha-divisor {
-            height: 1px;
-            width: 50px;
+            height: 2px;
+            width: 60px;
             background: linear-gradient(90deg, transparent, var(--cor-azul-logo), transparent);
+            transition: width 0.4s ease;
         }
 
-        /* --- Seção Sobre Mim --- */
+        section:hover .linha-divisor {
+            width: 100px;
+        }
+
+        /* --- Seção Sobre Mim Interativa --- */
         .box-sobre-mim {
             background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(58, 166, 185, 0.18);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(58, 166, 185, 0.2);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 10px 30px rgba(58, 166, 185, 0.06);
             display: flex;
             flex-wrap: wrap;
             gap: 35px;
             align-items: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .box-sobre-mim:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(58, 166, 185, 0.12);
         }
 
         .foto-container {
@@ -208,6 +234,11 @@
             border: 3px solid var(--cor-azul-logo);
             box-shadow: 0 12px 28px rgba(58, 166, 185, 0.18);
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .foto-container:hover img {
+            transform: scale(1.03) rotate(0.5deg);
         }
 
         .texto-sobre {
@@ -221,7 +252,7 @@
             margin-bottom: 15px;
         }
 
-        /* --- Grid de Serviços --- */
+        /* --- Grid de Serviços Interativo com efeito Tilt 3D --- */
         .grid-servicos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -234,13 +265,33 @@
             border: 1px solid rgba(58, 166, 185, 0.2);
             border-radius: 16px;
             padding: 30px 25px;
-            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Brilho decorativo no topo dos cards ao passar o mouse */
+        .card-servico::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cor-verde-agua), var(--cor-azul-logo));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .card-servico:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--cor-azul-logo);
-            box-shadow: 0 12px 30px rgba(58, 166, 185, 0.12);
+            box-shadow: 0 15px 35px rgba(58, 166, 185, 0.18);
+            background: #ffffff;
+        }
+
+        .card-servico:hover::before {
+            opacity: 1;
         }
 
         .card-servico h3 {
@@ -249,6 +300,11 @@
             color: var(--cor-escura);
             font-weight: 700;
             margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .card-servico:hover h3 {
+            color: var(--cor-azul-logo);
         }
 
         .card-servico p {
@@ -256,28 +312,28 @@
             font-size: 0.98rem;
         }
 
-        /* --- Botão Flutuante WhatsApp --- */
+        /* --- Botão Flutuante WhatsApp Interativo --- */
         .btn-flutuante {
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background-color: #25d366;
+            background: linear-gradient(135deg, #25d366 0%, #1ebc57 100%);
             color: #ffffff;
-            padding: 12px 22px;
+            padding: 14px 26px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             z-index: 999;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .btn-flutuante:hover {
-            transform: scale(1.05);
-            background-color: #1ebc57;
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
         }
 
         /* --- Rodapé --- */
@@ -367,6 +423,24 @@
     </footer>
 
     <script>
+        /* --- Animação de Entrada Interativa (Scroll Reveal) --- */
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        /* --- Interatividade da Borboleta --- */
         const canvas = document.getElementById('canvas-borboleta');
         const ctx = canvas.getContext('2d');
 
@@ -390,6 +464,12 @@
             targetX = Math.random() * (window.innerWidth - 120) + 60;
             targetY = Math.random() * (window.innerHeight - 120) + 60;
         }
+
+        // Permite que o usuário atraia a borboleta clicando na tela
+        window.addEventListener('click', (e) => {
+            targetX = e.clientX;
+            targetY = e.clientY;
+        });
 
         const pollens = [];
         const colors = [
