@@ -115,24 +115,26 @@
             border-bottom: 1px solid rgba(58, 166, 185, 0.15);
         }
 
-        /* Retângulo da Logo com bordas retangulares em degradê suave */
+        /* Retângulo Horizontal com Bordas em Gradiente */
         .logo-box {
             display: inline-block;
             position: relative;
-            padding: 30px 50px;
+            width: 100%;
+            max-width: 520px; /* Alargado no sentido horizontal */
+            padding: 20px 60px;
             background: rgba(255, 255, 255, 0.75);
-            border-radius: 8px;
+            border-radius: 6px;
             margin-bottom: 25px;
             transition: transform 0.4s ease;
             
-            /* Degradê linear nos 4 lados garantindo o formato retangular suave */
+            /* Máscara em degradê linear nos 4 lados para suave transição retangular */
             -webkit-mask-image: 
-                linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+                linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%),
                 linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
             -webkit-mask-composite: source-in;
             
             mask-image: 
-                linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+                linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%),
                 linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
             mask-composite: intersect;
             
@@ -144,8 +146,8 @@
         }
 
         .logo-box img {
-            max-width: 320px;
             width: 100%;
+            max-width: 440px; /* Ajuste para o formato wide/horizontal */
             height: auto;
             display: block;
             margin: 0 auto;
