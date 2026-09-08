@@ -11,31 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-
-        .btn-instagram-hero {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 16px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 8px 20px rgba(220, 39, 67, 0.3);
-    transition: all 0.3s ease;
-}
-
-.btn-instagram-hero:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(220, 39, 67, 0.45);
-    filter: brightness(1.08);
-}
-
-.btn-instagram-hero svg {
-    display: block;
-}
         :root {
             --cor-azul-logo: #3aa6b9;
             --cor-verde-agua: #79c9c5;
@@ -62,6 +37,16 @@
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
+        }
+
+        /* Estilo base para os ícones nos botões */
+        .icon-whatsapp {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            display: inline-block;
+            vertical-align: middle;
+            flex-shrink: 0;
         }
 
         /* --- MARCA D'ÁGUA DE FUNDO --- */
@@ -160,32 +145,6 @@
             font-weight: 600;
         }
 
-        .nav-ctas {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .btn-nav-whats {
-            background: #25d366;
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-nav-whats:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-        }
-
         /* --- HERO SECTION --- */
         .hero-section {
             position: relative;
@@ -268,51 +227,29 @@
             .hero-actions { justify-content: center; }
         }
 
-        .btn-primary-hero {
+        .btn-instagram-hero {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #25d366 0%, #1ebc57 100%);
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: #ffffff;
-            font-weight: 600;
-            font-size: 1.05rem;
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: pulse-green 2.5s infinite;
-        }
-
-        .btn-primary-hero:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
-        }
-
-        .btn-secondary-hero {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: transparent;
-            color: var(--cor-escura);
             font-weight: 600;
             font-size: 1.05rem;
             padding: 16px 28px;
             border-radius: 50px;
             text-decoration: none;
-            border: 2px solid var(--cor-azul-logo);
+            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.3);
             transition: all 0.3s ease;
         }
 
-        .btn-secondary-hero:hover {
-            background: rgba(58, 166, 185, 0.1);
+        .btn-instagram-hero:hover {
             transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(220, 39, 67, 0.45);
+            filter: brightness(1.08);
         }
 
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-            70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        .btn-instagram-hero svg {
+            display: block;
         }
 
         .hero-stats {
@@ -558,7 +495,7 @@
             font-size: 0.96rem;
         }
 
-        /* --- Botão Flutuante --- */
+        /* --- Botão Flutuante Único --- */
         .btn-flutuante {
             position: fixed;
             bottom: 25px;
@@ -575,11 +512,18 @@
             gap: 10px;
             z-index: 999;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse-green 2.5s infinite;
         }
 
         .btn-flutuante:hover {
             transform: scale(1.08) translateY(-3px);
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         /* --- Rodapé --- */
@@ -611,11 +555,6 @@
             Dra. Edlayne Martins
             <span>Psicóloga • CRP 13/10822</span>
         </a>
-        <div class="nav-ctas">
-            <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-nav-whats" target="_blank" rel="noopener noreferrer">
-                💬 Agendar Consulta
-            </a>
-        </div>
     </nav>
 
     <section class="hero-section visible" style="opacity: 1; transform: none; padding-top: 10px; padding-bottom: 20px;">
@@ -632,13 +571,13 @@
             
             <div class="hero-actions">
                 <a href="https://www.instagram.com/psiedlaynemartinss/" class="btn-instagram-hero" target="_blank" rel="noopener noreferrer">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-    </svg>
-    <span>Siga no Instagram</span>
-</a>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <span>Siga no Instagram</span>
+                </a>
             </div>
             
             <div class="hero-stats">
@@ -742,13 +681,15 @@
             </div>
             <div class="faq-item">
                 <h3>Como faço para agendar um horário?</h3>
-                <p>O agendamento pode ser feito de forma rápida e prática diretamente pelo botão do WhatsApp disponível no site.</p>
+                <p>O agendamento pode ser feito de forma rápida e prática diretamente pelo botão do WhatsApp disponível no canto inferior da tela.</p>
             </div>
         </div>
     </section>
 
+    <!-- Único Botão de Agendamento -->
     <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-flutuante" target="_blank" rel="noopener noreferrer">
-        💬 Agendar Consulta
+        <svg class="icon-whatsapp" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Agendar Consulta</span>
     </a>
 
     <footer>
