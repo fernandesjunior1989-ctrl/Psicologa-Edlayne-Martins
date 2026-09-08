@@ -1275,10 +1275,577 @@
                 transition-duration: .01ms !important;
             }
         }
+        /* =========================================================
+   BORBOLETAS FLUTUANTES
+========================================================= */
+
+#canvas-borboletas {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Garante que o conteúdo fique acima das borboletas */
+header,
+main,
+footer,
+.whatsapp-floating {
+    position: relative;
+    z-index: 10;
+}
+
+.whatsapp-floating {
+    position: fixed;
+    z-index: 999;
+}
+
+/* Em telas menores, reduz o impacto visual */
+@media (max-width: 650px) {
+    #canvas-borboletas {
+        opacity: .75;
+    }
     </style>
 </head>
 
+<script>
+(() => {
 
+    const canvas = document.getElementById("canvas-borboletas");
+
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+
+    let width = 0;
+    let height = 0;
+    let animationId;
+
+    const reducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+    /* =====================================================
+       AJUSTE DO CANVAS
+    ===================================================== */
+
+    function resizeCanvas() {
+
+        const pixelRatio =
+            Math.min(window.devicePixelRatio || 1, 2);
+
+        width = window.innerWidth;
+        height = window.innerHeight;
+
+        canvas.width = width * pixelRatio;
+        canvas.height = height * pixelRatio;
+
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+
+        ctx.setTransform(
+            pixelRatio,
+            0,
+            0,
+            pixelRatio,
+            0,
+            0
+        );
+
+    }
+
+    resizeCanvas();
+
+    window.addEventListener(
+        "resize",
+        resizeCanvas,
+        { passive: true }
+    );
+
+
+    /* =====================================================
+       BORBOLETAS
+    ===================================================== */
+
+    const butterflies = [
+
+        {
+            x: width * 0.12,
+            y: height * 0.22,
+
+            targetX: width * 0.78,
+            targetY: height * 0.32,
+
+            angle: 0,
+            flap: 0,
+
+            flapSpeed: 0.065,
+            speed: 0.0045,
+
+            scale: 1,
+
+            color1: "rgba(58, 166, 185, 0.72)",
+            color2: "rgba(121, 201, 197, 0.68)",
+
+            drift: Math.random() * 100
+        },
+
+        {
+            x: width * 0.84,
+            y: height * 0.58,
+
+            targetX: width * 0.22,
+            targetY: height * 0.18,
+
+            angle: Math.PI,
+
+            flap: Math.PI / 2,
+
+            flapSpeed: 0.075,
+            speed: 0.0038,
+
+            scale: 0.82,
+
+            color1: "rgba(121, 201, 197, 0.72)",
+            color2: "rgba(58, 166, 185, 0.62)",
+
+            drift: Math.random() * 100
+        }
+
+    ];
+
+
+    /* =====================================================
+       PARTÍCULAS
+    ===================================================== */
+
+    const particles = [];
+    const maxParticles = 35;
+
+
+    function createParticle(x, y) {
+
+        if (
+            particles.length >= maxParticles ||
+            Math.random() > 0.035
+        ) {
+            return;
+        }
+
+        particles.push({
+
+            x: x,
+            y: y,
+
+            vx: (Math.random() - 0.5) * 0.25,
+            vy: Math.random() * 0.35 + 0.05,
+
+            radius: Math.random() * 1.5 + 0.4,
+
+            alpha: 0.5,
+
+            decay:
+                Math.random() * 0.008 + 0.004
+
+        });
+
+    }
+
+
+    /* =====================================================
+       NOVO DESTINO
+    ===================================================== */
+
+    function newTarget(butterfly) {
+
+        const padding = 100;
+
+        butterfly.targetX =
+            padding +
+            Math.random() * (width - padding * 2);
+
+        butterfly.targetY =
+            padding +
+            Math.random() * (height - padding * 2);
+
+    }
+
+
+    /* =====================================================
+       DESENHO DA ASA
+    ===================================================== */
+
+    function drawWing(
+        direction,
+        wingScale,
+        scale,
+        color1,
+        color2
+    ) {
+
+        ctx.save();
+
+        ctx.scale(
+            direction * wingScale * scale,
+            scale
+        );
+
+
+        /* Asa superior */
+
+        ctx.beginPath();
+
+        ctx.moveTo(0, 0);
+
+        ctx.bezierCurveTo(
+            -18, -22,
+            -30, -10,
+            -18, 8
+        );
+
+        ctx.bezierCurveTo(
+            -12, 14,
+            -4, 9,
+            0, 0
+        );
+
+        ctx.fillStyle = color1;
+        ctx.fill();
+
+
+        /* Asa inferior */
+
+        ctx.beginPath();
+
+        ctx.moveTo(0, 2);
+
+        ctx.bezierCurveTo(
+            -17, 8,
+            -21, 24,
+            -4, 19
+        );
+
+        ctx.bezierCurveTo(
+            -1, 14,
+            0, 7,
+            0, 2
+        );
+
+        ctx.fillStyle = color2;
+        ctx.fill();
+
+        ctx.restore();
+
+    }
+
+
+    /* =====================================================
+       DESENHO DA BORBOLETA
+    ===================================================== */
+
+    function drawButterfly(butterfly) {
+
+        ctx.save();
+
+        ctx.translate(
+            butterfly.x,
+            butterfly.y
+        );
+
+        ctx.rotate(butterfly.angle);
+
+
+        const wingScale =
+            0.25 +
+            Math.abs(
+                Math.sin(butterfly.flap)
+            ) * 0.9;
+
+
+        /* Asas */
+
+        drawWing(
+            1,
+            wingScale,
+            butterfly.scale,
+            butterfly.color1,
+            butterfly.color2
+        );
+
+        drawWing(
+            -1,
+            wingScale,
+            butterfly.scale,
+            butterfly.color1,
+            butterfly.color2
+        );
+
+
+        /* Corpo */
+
+        ctx.beginPath();
+
+        ctx.ellipse(
+            0,
+            2,
+            1.3 * butterfly.scale,
+            8.5 * butterfly.scale,
+            0,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = "#216a78";
+        ctx.fill();
+
+
+        /* Antenas */
+
+        ctx.strokeStyle =
+            "rgba(33, 106, 120, 0.8)";
+
+        ctx.lineWidth = 0.8;
+
+        ctx.beginPath();
+
+        ctx.moveTo(-0.5, -5);
+        ctx.quadraticCurveTo(
+            -5,
+            -11,
+            -7,
+            -13
+        );
+
+        ctx.moveTo(0.5, -5);
+        ctx.quadraticCurveTo(
+            5,
+            -11,
+            7,
+            -13
+        );
+
+        ctx.stroke();
+
+        ctx.restore();
+
+    }
+
+
+    /* =====================================================
+       ATUALIZAÇÃO DAS PARTÍCULAS
+    ===================================================== */
+
+    function updateParticles() {
+
+        for (
+            let i = particles.length - 1;
+            i >= 0;
+            i--
+        ) {
+
+            const particle = particles[i];
+
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+
+            particle.alpha -= particle.decay;
+
+
+            if (particle.alpha <= 0) {
+
+                particles.splice(i, 1);
+
+                continue;
+
+            }
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                particle.x,
+                particle.y,
+                particle.radius,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fillStyle =
+                `rgba(121, 201, 197, ${particle.alpha})`;
+
+            ctx.fill();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       LOOP DE ANIMAÇÃO
+    ===================================================== */
+
+    function animate() {
+
+        ctx.clearRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        butterflies.forEach((butterfly) => {
+
+            butterfly.drift += 0.012;
+
+
+            const driftX =
+                Math.sin(butterfly.drift) * 25;
+
+            const driftY =
+                Math.cos(
+                    butterfly.drift * 0.8
+                ) * 18;
+
+
+            const destinationX =
+                butterfly.targetX + driftX;
+
+            const destinationY =
+                butterfly.targetY + driftY;
+
+
+            const dx =
+                destinationX - butterfly.x;
+
+            const dy =
+                destinationY - butterfly.y;
+
+
+            const distance =
+                Math.hypot(dx, dy);
+
+
+            /* Escolhe novo destino */
+
+            if (distance < 35) {
+
+                newTarget(butterfly);
+
+            }
+
+
+            /* Movimento */
+
+            butterfly.x +=
+                dx * butterfly.speed;
+
+            butterfly.y +=
+                dy * butterfly.speed;
+
+
+            /* Direção */
+
+            const desiredAngle =
+                Math.atan2(dy, dx) +
+                Math.PI / 2;
+
+            let difference =
+                desiredAngle -
+                butterfly.angle;
+
+
+            while (difference < -Math.PI) {
+                difference += Math.PI * 2;
+            }
+
+            while (difference > Math.PI) {
+                difference -= Math.PI * 2;
+            }
+
+
+            butterfly.angle +=
+                difference * 0.025;
+
+
+            /* Movimento das asas */
+
+            butterfly.flap +=
+                butterfly.flapSpeed;
+
+
+            createParticle(
+                butterfly.x,
+                butterfly.y
+            );
+
+
+            drawButterfly(butterfly);
+
+        });
+
+
+        updateParticles();
+
+
+        animationId =
+            requestAnimationFrame(animate);
+
+    }
+
+
+    /* =====================================================
+       INÍCIO
+    ===================================================== */
+
+    if (!reducedMotion) {
+
+        animate();
+
+    } else {
+
+        /*
+            Mantém uma versão estática para usuários que
+            preferem redução de movimento.
+        */
+
+        butterflies.forEach(drawButterfly);
+
+    }
+
+
+    /* =====================================================
+       PAUSA QUANDO A ABA NÃO ESTÁ VISÍVEL
+    ===================================================== */
+
+    document.addEventListener(
+        "visibilitychange",
+        () => {
+
+            if (document.hidden) {
+
+                cancelAnimationFrame(animationId);
+
+            } else if (!reducedMotion) {
+
+                cancelAnimationFrame(animationId);
+
+                animate();
+
+            }
+
+        }
+    );
+
+})();
+</script>
+    
 <body>
 
     <a href="#conteudo" class="skip-link">
