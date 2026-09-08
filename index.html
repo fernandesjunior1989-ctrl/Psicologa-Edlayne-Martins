@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dra. Edlayne Martins | Psicóloga Clínica - CRP 13/10822</title>
+    <title>Dra. Edlayne Martins | Psicóloga Clínica em João Pessoa - CRP 13/10822</title>
+    <meta name="description" content="Psicóloga clínica especializada em Terapia Cognitivo-Comportamental (TCC) em João Pessoa e atendimento online. Agende sua consulta.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,7 +161,7 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        /* --- HERO SECTION PROFISSIONAL (DOBRA INICIAL) --- */
+        /* --- HERO SECTION --- */
         .hero-section {
             position: relative;
             z-index: 1;
@@ -345,7 +346,7 @@
             white-space: nowrap;
         }
 
-        /* --- SEÇÕES POSTERIORES --- */
+        /* --- SEÇÕES GERAIS --- */
         section {
             position: relative;
             z-index: 1;
@@ -470,6 +471,33 @@
         .card-servico p {
             color: var(--cor-texto-suave);
             font-size: 0.98rem;
+        }
+
+        /* --- FAQ / Dúvidas Frequentes --- */
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(58, 166, 185, 0.2);
+            border-radius: 14px;
+            padding: 22px 25px;
+            box-shadow: 0 5px 15px rgba(58, 166, 185, 0.05);
+        }
+
+        .faq-item h3 {
+            font-family: var(--fonte-titulo);
+            font-size: 1.35rem;
+            color: var(--cor-escura);
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: var(--cor-texto-suave);
+            font-size: 0.96rem;
         }
 
         /* --- Botão Flutuante --- */
@@ -613,6 +641,31 @@
             <div class="card-servico">
                 <h3>Desenvolvimento Pessoal</h3>
                 <p>Treino de assertividade, superação da procrastinação, inteligência emocional e resolução saudável de conflitos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: PERGUNTAS FREQUENTES (FAQ) -->
+    <section>
+        <div class="titulo-com-icones">
+            <h2>Dúvidas Frequentes</h2>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+            </div>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <h3>Como funcionam as sessões online?</h3>
+                <p>As consultas online são realizadas por vídeochamada em ambiente seguro e sigiloso, permitindo que você realize o atendimento de onde estiver, com a mesma qualidade do presencial.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Qual é a duração de cada sessão?</h3>
+                <p>Cada sessão de psicoterapia tem duração aproximada de 50 minutos a 1 hora, ocorrendo geralmente com frequência semanal.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Como faço para agendar um horário?</h3>
+                <p>O agendamento pode ser feito de forma rápida e prática diretamente pelo botão do WhatsApp disponível no site.</p>
             </div>
         </div>
     </section>
