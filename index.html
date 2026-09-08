@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dra. Edlayne Martins | Psicóloga Clínica e Neuropsicologia em João Pessoa - CRP 13/10822</title>
-    <meta name="description" content="Psicóloga clínica especialista em Terapia Cognitivo-Comportamental (TCC) e pós-graduanda em Neuropsicologia em João Pessoa e atendimento online. Agende sua consulta.">
+    <title>Dra. Edlayne Martins | Psicóloga Clínica e Neuropsicologia CRP 13/10822</title>
+    <meta name="description" content="Atendimento psicológico presencial em João Pessoa e online para todo o Brasil. Especialista em TCC e Pós-graduanda em Neuropsicologia.">
   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,6 @@
             position: relative;
         }
 
-        /* Estilo base para os ícones nos botões */
         .icon-whatsapp {
             width: 20px;
             height: 20px;
@@ -49,7 +48,7 @@
             flex-shrink: 0;
         }
 
-        /* --- MARCA D'ÁGUA DE FUNDO --- */
+        /* MARCA D'ÁGUA */
         .marca-dagua-bg {
             position: fixed;
             top: 50%;
@@ -58,12 +57,12 @@
             width: 75vw;
             max-width: 700px;
             height: auto;
-            opacity: 0.06;
+            opacity: 0.05;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* --- CANVAS PARA BORBOLETAS E PÓLEN --- */
+        /* CANVAS */
         #canvas-borboleta {
             position: fixed;
             top: 0;
@@ -74,7 +73,7 @@
             z-index: 99;
         }
 
-        /* Fundo Aquarela Suave */
+        /* FUNDO AQUARELA */
         .fundo-aquarela-container {
             position: fixed;
             top: 0;
@@ -114,11 +113,11 @@
             100% { transform: scale(0.95) translate(15px, -10px); opacity: 0.6; }
         }
 
-        /* --- NAVBAR SUPERIOR --- */
+        /* NAVBAR */
         .navbar {
             position: relative;
             z-index: 10;
-            max-width: 1150px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 25px 20px;
             display: flex;
@@ -128,7 +127,7 @@
 
         .logo-marca {
             font-family: var(--fonte-titulo);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--cor-escura);
             font-weight: 700;
             text-decoration: none;
@@ -138,23 +137,23 @@
 
         .logo-marca span {
             font-family: var(--fonte-corpo);
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             color: var(--cor-azul-logo);
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 600;
         }
 
-        /* --- HERO SECTION --- */
+        /* HERO SECTION */
         .hero-section {
             position: relative;
             z-index: 1;
-            max-width: 1150px;
-            margin: 20px auto 70px;
+            max-width: 1100px;
+            margin: 10px auto 60px;
             padding: 0 20px;
             display: grid;
             grid-template-columns: 1.2fr 1fr;
-            gap: 50px;
+            gap: 40px;
             align-items: center;
         }
 
@@ -162,14 +161,13 @@
             .hero-section {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 40px;
             }
         }
 
         .hero-text-content {
             display: flex;
             flex-direction: column;
-            gap: 22px;
+            gap: 20px;
         }
 
         .hero-badge {
@@ -184,7 +182,6 @@
             border-radius: 30px;
             border: 1px solid rgba(58, 166, 185, 0.25);
             width: fit-content;
-            letter-spacing: 0.5px;
         }
 
         @media (max-width: 900px) {
@@ -193,10 +190,10 @@
 
         .hero-title {
             font-family: var(--fonte-titulo);
-            font-size: 3.4rem;
+            font-size: 3.2rem;
             color: var(--cor-escura);
             font-weight: 700;
-            line-height: 1.12;
+            line-height: 1.15;
         }
 
         .hero-title span {
@@ -205,22 +202,16 @@
         }
 
         .hero-description {
-            font-size: 1.12rem;
+            font-size: 1.1rem;
             color: var(--cor-texto-suave);
             line-height: 1.7;
-            max-width: 560px;
-        }
-
-        @media (max-width: 900px) {
-            .hero-description { margin: 0 auto; }
         }
 
         .hero-actions {
             display: flex;
             gap: 15px;
             align-items: center;
-            margin-top: 10px;
-            flex-wrap: wrap;
+            margin-top: 5px;
         }
 
         @media (max-width: 900px) {
@@ -234,106 +225,69 @@
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: #ffffff;
             font-weight: 600;
-            font-size: 1.05rem;
-            padding: 16px 28px;
+            font-size: 0.98rem;
+            padding: 14px 26px;
             border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.3);
+            box-shadow: 0 6px 18px rgba(220, 39, 67, 0.25);
             transition: all 0.3s ease;
         }
 
         .btn-instagram-hero:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(220, 39, 67, 0.45);
-            filter: brightness(1.08);
+            box-shadow: 0 10px 22px rgba(220, 39, 67, 0.35);
         }
 
-        .btn-instagram-hero svg {
-            display: block;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(58, 166, 185, 0.2);
-        }
-
-        @media (max-width: 900px) {
-            .hero-stats { justify-content: center; }
-        }
-
-        .stat-item h3 {
-            font-family: var(--fonte-titulo);
-            font-size: 1.8rem;
-            color: var(--cor-escura);
-            font-weight: 700;
-        }
-
-        .stat-item p {
-            font-size: 0.85rem;
-            color: var(--cor-texto-suave);
-        }
-
-        /* --- HERO CARD / FOTO VISUAL --- */
         .hero-visual-card {
             position: relative;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(242, 249, 249, 0.9));
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(58, 166, 185, 0.25);
-            border-radius: 30px;
-            padding: 35px;
-            box-shadow: 0 20px 45px rgba(58, 166, 185, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(58, 166, 185, 0.2);
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(58, 166, 185, 0.08);
             text-align: center;
         }
 
         .hero-img-wrapper {
             position: relative;
             width: 100%;
-            max-width: 320px;
+            max-width: 300px;
             margin: 0 auto;
-            border-radius: 22px;
+            border-radius: 18px;
             overflow: hidden;
             border: 3px solid var(--cor-azul-logo);
-            box-shadow: 0 15px 35px rgba(58, 166, 185, 0.2);
         }
 
         .hero-img-wrapper img {
             width: 100%;
-            height: 380px;
+            height: 360px;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .hero-img-wrapper:hover img {
-            transform: scale(1.03);
         }
 
         .hero-floating-badge {
             position: absolute;
-            bottom: 20px;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(33, 106, 120, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(33, 106, 120, 0.92);
+            backdrop-filter: blur(8px);
             color: #ffffff;
-            padding: 10px 22px;
+            padding: 8px 18px;
             border-radius: 50px;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             white-space: nowrap;
         }
 
-        /* --- SEÇÕES GERAIS --- */
+        /* SEÇÕES GERAIS */
         section {
             position: relative;
             z-index: 1;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 50px 20px;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -346,129 +300,109 @@
 
         .titulo-com-icones {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .titulo-com-icones h2 {
             font-family: var(--fonte-titulo);
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             color: var(--cor-escura);
             font-weight: 700;
-        }
-
-        .icones-divisor {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 8px;
         }
 
         .linha-divisor {
             height: 2px;
             width: 70px;
+            margin: 8px auto 0;
             background: linear-gradient(90deg, transparent, var(--cor-azul-logo), transparent);
-            transition: width 0.4s ease;
         }
 
-        section:hover .linha-divisor {
-            width: 110px;
-        }
-
-        /* --- Sobre Mim --- */
+        /* SOBRE MIM */
         .box-sobre-mim {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(58, 166, 185, 0.2);
-            padding: 45px;
-            border-radius: 24px;
-            box-shadow: 0 12px 35px rgba(58, 166, 185, 0.08);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .texto-sobre {
-            flex: 1;
-            min-width: 280px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(58, 166, 185, 0.06);
         }
 
         .texto-sobre p {
             color: var(--cor-texto-suave);
             font-size: 1.05rem;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
-        /* --- Serviços --- */
+        .texto-sobre p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* SERVIÇOS */
         .grid-servicos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .card-servico {
-            background: rgba(242, 249, 249, 0.9);
-            backdrop-filter: blur(8px);
+            background: rgba(242, 249, 249, 0.85);
             border: 1px solid rgba(58, 166, 185, 0.2);
-            border-radius: 18px;
-            padding: 35px 28px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .card-servico::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--cor-verde-agua), var(--cor-azul-logo));
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            border-radius: 16px;
+            padding: 30px 25px;
+            transition: all 0.3s ease;
         }
 
         .card-servico:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             border-color: var(--cor-azul-logo);
-            box-shadow: 0 16px 36px rgba(58, 166, 185, 0.18);
             background: #ffffff;
-        }
-
-        .card-servico:hover::before {
-            opacity: 1;
+            box-shadow: 0 12px 28px rgba(58, 166, 185, 0.12);
         }
 
         .card-servico h3 {
             font-family: var(--fonte-titulo);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--cor-escura);
-            font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .card-servico p {
             color: var(--cor-texto-suave);
-            font-size: 0.98rem;
+            font-size: 0.95rem;
         }
 
-        /* --- Instagram Feed Section --- */
-        .instagram-section {
+        /* MODALIDADES DE ATENDIMENTO */
+        .grid-modalidades {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .grid-modalidades { grid-template-columns: 1fr; }
+        }
+
+        .card-modalidade {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(58, 166, 185, 0.2);
+            border-radius: 16px;
+            padding: 30px;
             text-align: center;
         }
 
-        .instagram-widget-wrapper {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid rgba(58, 166, 185, 0.2);
-            box-shadow: 0 10px 30px rgba(58, 166, 185, 0.08);
-            overflow: hidden;
+        .card-modalidade h3 {
+            font-family: var(--fonte-titulo);
+            font-size: 1.6rem;
+            color: var(--cor-escura);
+            margin-bottom: 8px;
         }
 
-        /* --- FAQ / Dúvidas Frequentes --- */
+        .card-modalidade p {
+            color: var(--cor-texto-suave);
+            font-size: 0.96rem;
+        }
+
+        /* FAQ */
         .faq-container {
             display: flex;
             flex-direction: column;
@@ -479,23 +413,30 @@
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(58, 166, 185, 0.2);
             border-radius: 14px;
-            padding: 22px 25px;
-            box-shadow: 0 5px 15px rgba(58, 166, 185, 0.05);
+            padding: 20px 25px;
         }
 
         .faq-item h3 {
             font-family: var(--fonte-titulo);
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             color: var(--cor-escura);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .faq-item p {
             color: var(--cor-texto-suave);
-            font-size: 0.96rem;
+            font-size: 0.95rem;
         }
 
-        /* --- Botão Flutuante Único --- */
+        /* INSTAGRAM WIDGET */
+        .instagram-widget-wrapper {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 18px;
+            padding: 15px;
+            border: 1px solid rgba(58, 166, 185, 0.2);
+        }
+
+        /* BOTÃO FLUTUANTE DO WHATSAPP */
         .btn-flutuante {
             position: fixed;
             bottom: 25px;
@@ -516,7 +457,7 @@
         }
 
         .btn-flutuante:hover {
-            transform: scale(1.08) translateY(-3px);
+            transform: scale(1.06) translateY(-2px);
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
         }
 
@@ -526,23 +467,23 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* --- Rodapé --- */
+        /* RODAPÉ */
         footer {
             position: relative;
             z-index: 1;
             background: var(--cor-escura);
             color: #ffffff;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
+            padding: 35px 20px;
+            margin-top: 50px;
             border-top: 3px solid var(--cor-azul-logo);
+            font-size: 0.92rem;
         }
     </style>
 </head>
 <body>
 
     <img src="marca-dagua.png" alt="Marca d'água Cérebro e Borboleta" class="marca-dagua-bg">
-
     <canvas id="canvas-borboleta"></canvas>
 
     <div class="fundo-aquarela-container">
@@ -550,6 +491,7 @@
         <div class="bg-aquarela-2"></div>
     </div>
 
+    <!-- 1. CABEÇALHO -->
     <nav class="navbar">
         <a href="#" class="logo-marca">
             Dra. Edlayne Martins
@@ -557,42 +499,28 @@
         </a>
     </nav>
 
-    <section class="hero-section visible" style="opacity: 1; transform: none; padding-top: 10px; padding-bottom: 20px;">
+    <!-- 2. HERO SECTION -->
+    <section class="hero-section visible" style="opacity: 1; transform: none;">
         <div class="hero-text-content">
             <div class="hero-badge">
-                🌿 Especialista em TCC & Pós-graduanda em Neuropsicologia
+                🌿 Terapia Cognitivo-Comportamental & Neuropsicologia
             </div>
             <h1 class="hero-title">
-                Um espaço seguro para a sua <span>transformação emocional</span>.
+                Um espaço seguro para o seu <span>bem-estar emocional</span>.
             </h1>
             <p class="hero-description">
-                Compreenda seus padrões de pensamento, supere momentos de ansiedade e desenvolva inteligência emocional com base na Terapia Cognitivo-Comportamental aliada a avaliações Neuropsicológicas.
+                Acolhimento profissional e científico para ajudar você a compreender padrões de pensamento, superar momentos de ansiedade e desenvolver autonomia emocional.
             </p>
             
             <div class="hero-actions">
                 <a href="https://www.instagram.com/psiedlaynemartinss/" class="btn-instagram-hero" target="_blank" rel="noopener noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
-                    <span>Siga no Instagram</span>
+                    <span>Acompanhe no Instagram</span>
                 </a>
-            </div>
-            
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <h3>Presencial</h3>
-                    <p>Atendimento Clínico</p>
-                </div>
-                <div class="stat-item">
-                    <h3>Online</h3>
-                    <p>Todo o Brasil e Exterior</p>
-                </div>
-                <div class="stat-item">
-                    <h3>CRP 13/10822</h3>
-                    <p>Profissional Registrada</p>
-                </div>
             </div>
         </div>
 
@@ -604,56 +532,94 @@
         </div>
     </section>
 
+    <!-- 3. SOBRE MIM -->
     <section>
         <div class="titulo-com-icones">
             <h2>Sobre Mim</h2>
-            <div class="icones-divisor">
-                <div class="linha-divisor"></div>
-            </div>
+            <div class="linha-divisor"></div>
         </div>
 
         <div class="box-sobre-mim">
             <div class="texto-sobre">
                 <p>Olá! Sou a <strong>Dra. Edlayne Martins</strong> (CRP 13/10822), psicóloga clínica com especialização em <strong>Terapia Cognitivo-Comportamental (TCC)</strong> e pós-graduanda em <strong>Neuropsicologia</strong>.</p>
-                <p>Auxilio meus pacientes a compreenderem a relação entre o funcionamento cerebral, os pensamentos e os comportamentos, desenvolvendo ferramentas práticas e eficazes para lidar com a ansiedade, regulação emocional e desafios cotidianos, prestando também atendimento especializado a crianças de 03 a 12 anos de idade.</p>
-                <p>Meu compromisso é oferecer um atendimento ético, acolhedor e fundamentado em evidências científicas, promovendo autonomia e qualidade de vida.</p>
+                <p>Auxilio meus pacientes a compreenderem a relação entre o funcionamento cerebral, os pensamentos e os comportamentos, oferecendo estratégias práticas e fundamentadas em evidências para lidar com ansiedade, regulação emocional e autoconhecimento.</p>
+                <p>Ofereço também atendimento psicológico especializado para crianças de 03 a 12 anos de idade, pautado sempre pela ética, acolhimento e respeito à singularidade de cada indivíduo.</p>
             </div>
         </div>
     </section>
 
+    <!-- 4. ÁREAS DE ATUAÇÃO -->
     <section>
         <div class="titulo-com-icones">
             <h2>Como Posso Ajudar</h2>
-            <div class="icones-divisor">
-                <div class="linha-divisor"></div>
-            </div>
+            <div class="linha-divisor"></div>
         </div>
 
         <div class="grid-servicos">
             <div class="card-servico">
-                <h3>Transtornos de Ansiedade & Humor</h3>
-                <p>Manejo da ansiedade, prevenção de crises, fobias e desenvolvimento de estratégias de regulação emocional diária.</p>
+                <h3>Ansiedade & Regulação Emocional</h3>
+                <p>Manejo de ansiedade, prevenção de crises, fobias e desenvolvimento de estratégias para o equilíbrio diário.</p>
             </div>
 
             <div class="card-servico">
-                <h3>Aprimoramento Mental & Funções Cognitivas</h3>
-                <p>Compreensão profunda das funções cognitivas, atenção, memória e reestruturação de padrões comportamentais.</p>
+                <h3>Funções Cognitivas & Neuropsicologia</h3>
+                <p>Aprimoramento do foco, memória, atenção e compreensão do funcionamento neuropsicológico individual.</p>
             </div>
 
             <div class="card-servico">
                 <h3>Desenvolvimento Pessoal</h3>
-                <p>Habilidades Sociais, Autoconhecimento, inteligência emocional e resolução saudável de conflitos.</p>
+                <p>Fortalecimento de habilidades sociais, autoconhecimento, inteligência emocional e resolução saudável de conflitos.</p>
             </div>
         </div>
     </section>
 
-    <!-- Instagram Feed Section -->
-    <section class="instagram-section">
+    <!-- 5. MODALIDADES DE ATENDIMENTO -->
+    <section>
         <div class="titulo-com-icones">
-            <h2>Acompanhe no Instagram</h2>
-            <div class="icones-divisor">
-                <div class="linha-divisor"></div>
+            <h2>Modalidades de Atendimento</h2>
+            <div class="linha-divisor"></div>
+        </div>
+
+        <div class="grid-modalidades">
+            <div class="card-modalidade">
+                <h3>Atendimento Presencial</h3>
+                <p>Consultório preparado para oferecer acolhimento, privacidade e conforto localizado em João Pessoa - PB.</p>
             </div>
+            <div class="card-modalidade">
+                <h3>Atendimento Online</h3>
+                <p>Sessões por videochamada com a mesma eficácia clínica, disponíveis para todo o Brasil e residentes no exterior.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PERGUNTAS FREQUENTES -->
+    <section>
+        <div class="titulo-com-icones">
+            <h2>Dúvidas Frequentes</h2>
+            <div class="linha-divisor"></div>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <h3>Como funcionam as sessões online?</h3>
+                <p>As consultas ocorrem por videochamada em uma plataforma segura e sigilosa, permitindo flexibilidade de horário e o mesmo padrão do atendimento presencial.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Qual a duração e frequência das consultas?</h3>
+                <p>Cada sessão dura aproximadamente 50 minutos e possui frequência semanal, ajustada conforme as necessidades do acompanhamento.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Como agendar uma consulta?</h3>
+                <p>Basta clicar no botão do WhatsApp fixado no canto da tela para falar diretamente com a recepção e verificar horários disponíveis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. WIDGET INSTAGRAM -->
+    <section>
+        <div class="titulo-com-icones">
+            <h2>Publicações Recentes</h2>
+            <div class="linha-divisor"></div>
         </div>
         <div class="instagram-widget-wrapper">
             <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
@@ -661,39 +627,15 @@
         </div>
     </section>
 
-    <!-- FAQ / Dúvidas Frequentes -->
-    <section>
-        <div class="titulo-com-icones">
-            <h2>Dúvidas Frequentes</h2>
-            <div class="icones-divisor">
-                <div class="linha-divisor"></div>
-            </div>
-        </div>
-
-        <div class="faq-container">
-            <div class="faq-item">
-                <h3>Como funcionam as sessões online?</h3>
-                <p>As consultas online são realizadas por vídeochamada em ambiente seguro e sigiloso, permitindo que você realize o atendimento de onde estiver, com a mesma qualidade do presencial.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Qual é a duração de cada sessão?</h3>
-                <p>Cada sessão de psicoterapia tem duração aproximada de 50 minutos a 1 hora, ocorrendo geralmente com frequência semanal.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Como faço para agendar um horário?</h3>
-                <p>O agendamento pode ser feito de forma rápida e prática diretamente pelo botão do WhatsApp disponível no canto inferior da tela.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Único Botão de Agendamento -->
+    <!-- BOTÃO FLUTUANTE DE AGENDAMENTO -->
     <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-flutuante" target="_blank" rel="noopener noreferrer">
         <svg class="icon-whatsapp" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         <span>Agendar Consulta</span>
     </a>
 
+    <!-- RODAPÉ -->
     <footer>
-        <p><strong>Dra. Edlayne Martins</strong> • Psicóloga • TCC & Neuropsicologia • CRP 13/10822</p>
+        <p><strong>Dra. Edlayne Martins</strong> • Psicóloga Clínica • TCC & Neuropsicologia • CRP 13/10822</p>
     </footer>
 
     <script>
@@ -713,7 +655,7 @@
             }
         });
 
-        // Sistema de Borboletas com Voo Realista
+        // Sistema de Borboletas
         const canvas = document.getElementById('canvas-borboleta');
         const ctx = canvas.getContext('2d');
 
@@ -758,19 +700,6 @@
                 scale: 0.85,
                 colorWing1: 'rgba(121, 201, 197, 0.75)',
                 colorWing2: 'rgba(58, 166, 185, 0.7)'
-            },
-            {
-                x: window.innerWidth * 0.5,
-                y: window.innerHeight * 0.7,
-                targetX: window.innerWidth * 0.85,
-                targetY: window.innerHeight * 0.6,
-                angle: 0,
-                flap: 4,
-                flapSpeed: 0.065,
-                driftTime: Math.random() * 100,
-                scale: 0.9,
-                colorWing1: 'rgba(90, 190, 200, 0.75)',
-                colorWing2: 'rgba(100, 215, 195, 0.7)'
             }
         ];
 
@@ -781,13 +710,8 @@
             b.targetY = Math.random() * (window.innerHeight - 160) + 80;
         }
 
-        window.addEventListener('click', (e) => {
-            butterflies[0].targetX = e.clientX;
-            butterflies[0].targetY = e.clientY;
-        });
-
         function createPollen(x, y) {
-            if (pollens.length < 150 && Math.random() < 0.4) {
+            if (pollens.length < 100 && Math.random() < 0.3) {
                 pollens.push({
                     x: x + (Math.random() - 0.5) * 8,
                     y: y + (Math.random() - 0.5) * 8,
@@ -811,16 +735,6 @@
             ctx.bezierCurveTo(-10, 12, -4, 8, 0, 0);
             ctx.fillStyle = c1;
             ctx.fill();
-            ctx.strokeStyle = 'rgba(33, 106, 120, 0.5)';
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.quadraticCurveTo(-14, -10, -12, 2);
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
 
             ctx.beginPath();
             ctx.moveTo(0, 2);
@@ -828,9 +742,6 @@
             ctx.bezierCurveTo(-1, 14, 0, 6, 0, 2);
             ctx.fillStyle = c2;
             ctx.fill();
-            ctx.strokeStyle = 'rgba(33, 106, 120, 0.5)';
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
 
             ctx.restore();
         }
@@ -849,15 +760,6 @@
             ctx.ellipse(0, 2, 1.2 * b.scale, 9 * b.scale, 0, 0, Math.PI * 2);
             ctx.fillStyle = '#216a78';
             ctx.fill();
-
-            ctx.beginPath();
-            ctx.moveTo(-0.5 * b.scale, -6 * b.scale);
-            ctx.quadraticCurveTo(-4 * b.scale, -13 * b.scale, -7 * b.scale, -15 * b.scale);
-            ctx.moveTo(0.5 * b.scale, -6 * b.scale);
-            ctx.quadraticCurveTo(4 * b.scale, -13 * b.scale, 7 * b.scale, -15 * b.scale);
-            ctx.strokeStyle = '#216a78';
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
 
             ctx.restore();
         }
@@ -910,8 +812,6 @@
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                 ctx.fillStyle = p.colorBase + p.alpha + ')';
-                ctx.shadowBlur = 6;
-                ctx.shadowColor = p.colorBase + '0.6)';
                 ctx.fill();
                 ctx.restore();
             }
