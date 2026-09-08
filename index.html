@@ -180,7 +180,6 @@
                 text-align: center;
                 gap: 40px;
             }
-            .nav-ctas { display: none; }
         }
 
         .hero-text-content {
@@ -263,6 +262,26 @@
         .btn-primary-hero:hover {
             transform: translateY(-4px) scale(1.02);
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+        }
+
+        .btn-secondary-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--cor-escura);
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 16px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 2px solid var(--cor-azul-logo);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-hero:hover {
+            background: rgba(58, 166, 185, 0.1);
+            transform: translateY(-2px);
         }
 
         @keyframes pulse-green {
@@ -473,6 +492,20 @@
             font-size: 0.98rem;
         }
 
+        /* --- Instagram Feed Section --- */
+        .instagram-section {
+            text-align: center;
+        }
+
+        .instagram-widget-wrapper {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(58, 166, 185, 0.2);
+            box-shadow: 0 10px 30px rgba(58, 166, 185, 0.08);
+            overflow: hidden;
+        }
+
         /* --- FAQ / Dúvidas Frequentes --- */
         .faq-container {
             display: flex;
@@ -554,7 +587,7 @@
             <span>Psicóloga • CRP 13/10822</span>
         </a>
         <div class="nav-ctas">
-            <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-nav-whats" target="_blank">
+            <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-nav-whats" target="_blank" rel="noopener noreferrer">
                 💬 Agendar Consulta
             </a>
         </div>
@@ -571,15 +604,13 @@
             <p class="hero-description">
                 Compreenda seus padrões de pensamento, supere momentos de ansiedade e desenvolva inteligência emocional com base na Terapia Cognitivo-Comportamental aliada a avaliações Neuropsicológicas.
             </p>
-
-            <!-- LightWidget WIDGET -->
-<script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-<iframe src="//lightwidget.com/widgets/98975395735354a98ccd0262bb8ebe30.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
-
             
             <div class="hero-actions">
-                <a href="https://www.instagram.com/psiedlaynemartinss/." class="btn-primary-hero" target="_blank">
-                    💬 Instagram
+                <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-primary-hero" target="_blank" rel="noopener noreferrer">
+                    💬 Agendar Consulta via WhatsApp
+                </a>
+                <a href="https://www.instagram.com/psiedlaynemartinss/" class="btn-secondary-hero" target="_blank" rel="noopener noreferrer">
+                    📸 Siga no Instagram
                 </a>
             </div>
             
@@ -634,7 +665,7 @@
 
         <div class="grid-servicos">
             <div class="card-servico">
-                <h3>Transtorno de Ansiedade & Humor</h3>
+                <h3>Transtornos de Ansiedade & Humor</h3>
                 <p>Manejo da ansiedade, prevenção de crises, fobias e desenvolvimento de estratégias de regulação emocional diária.</p>
             </div>
 
@@ -647,6 +678,20 @@
                 <h3>Desenvolvimento Pessoal</h3>
                 <p>Habilidades Sociais, Autoconhecimento, inteligência emocional e resolução saudável de conflitos.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="instagram-section">
+        <div class="titulo-com-icones">
+            <h2>Acompanhe no Instagram</h2>
+            <div class="icones-divisor">
+                <div class="linha-divisor"></div>
+            </div>
+        </div>
+        <div class="instagram-widget-wrapper">
+            <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+            <iframe src="//lightwidget.com/widgets/98975395735354a98ccd0262bb8ebe30.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
         </div>
     </section>
 
@@ -675,7 +720,7 @@
         </div>
     </section>
 
-    <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-flutuante" target="_blank">
+    <a href="https://wa.me/5583987994358?text=Olá,%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-flutuante" target="_blank" rel="noopener noreferrer">
         💬 Agendar Consulta
     </a>
 
@@ -700,7 +745,7 @@
             }
         });
 
-        // Sistema de 3 Borboletas com Voo Realista, Lento e Delicado
+        // Sistema de Borboletas com Voo Realista
         const canvas = document.getElementById('canvas-borboleta');
         const ctx = canvas.getContext('2d');
 
@@ -774,7 +819,7 @@
         });
 
         function createPollen(x, y) {
-            if (Math.random() < 0.4) {
+            if (pollens.length < 150 && Math.random() < 0.4) {
                 pollens.push({
                     x: x + (Math.random() - 0.5) * 8,
                     y: y + (Math.random() - 0.5) * 8,
