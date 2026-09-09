@@ -1,1 +1,2372 @@
+```python
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dra. Edlayne Martins | Psicóloga Clínica em João Pessoa - PB</title>
+
+    <meta
+        name="description"
+        content="Dra. Edlayne Martins, psicóloga clínica em João Pessoa - PB. Especialista na abordagem TCC e pós-graduanda em Neuropsicologia. Atendimento presencial e online."
+    >
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#216a78">
+    <meta name="author" content="Dra. Edlayne Martins">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dra. Edlayne Martins | Psicóloga Clínica em João Pessoa">
+    <meta
+        property="og:description"
+        content="Psicóloga clínica em João Pessoa - PB, especialista na abordagem TCC e pós-graduanda em Neuropsicologia."
+    >
+    <meta property="og:image" content="foto-edlayne.jpg">
+    <meta property="og:image:alt" content="Dra. Edlayne Martins, psicóloga clínica">
+    <meta property="og:locale" content="pt_BR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dra. Edlayne Martins | Psicóloga Clínica">
+    <meta
+        name="twitter:description"
+        content="Psicóloga clínica em João Pessoa - PB, especialista na abordagem TCC e pós-graduanda em Neuropsicologia."
+    >
+    <meta name="twitter:image" content="foto-edlayne.jpg">
+
+    <link rel="icon" href="marca-dagua.png">
+
+    <link
+        rel="preload"
+        as="image"
+        href="foto-edlayne.jpg"
+        fetchpriority="high"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Dados estruturados -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Dra. Edlayne Martins",
+        "description": "Psicóloga clínica em João Pessoa - PB, especialista na abordagem da Terapia Cognitivo-Comportamental e pós-graduanda em Neuropsicologia.",
+        "telephone": "+55 83 98799-4358",
+        "image": "foto-edlayne.jpg",
+        "areaServed": {
+            "@type": "City",
+            "name": "João Pessoa"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Rio Grande do Sul, 1345 - Sala 904",
+            "addressLocality": "João Pessoa",
+            "addressRegion": "PB",
+            "postalCode": "58030-021",
+            "addressCountry": "BR"
+        },
+        "sameAs": [
+            "https://www.instagram.com/psiedlaynemartinss/"
+        ],
+        "serviceType": [
+            "Psicologia Clínica",
+            "Terapia Cognitivo-Comportamental",
+            "Psicologia Infantil",
+            "Atendimento Psicológico Online"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Como faço para agendar uma consulta?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Entre em contato pelo WhatsApp para conversar sobre o atendimento e verificar a disponibilidade de horários."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "O que acontece no primeiro contato?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "O primeiro contato é destinado a entender sua demanda, esclarecer dúvidas sobre o atendimento e verificar a possibilidade de iniciar o acompanhamento."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto tempo dura uma sessão?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Cada sessão dura aproximadamente 50 minutos."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qual é a frequência das sessões?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A frequência é definida de acordo com as necessidades e objetivos do acompanhamento psicológico."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Existe atendimento psicológico online?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim. Há atendimento por videochamada, observadas as condições e a regulamentação aplicáveis ao atendimento psicológico online."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Há atendimento psicológico para crianças?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim. Há atendimento psicológico para crianças de 3 a 12 anos, considerando a faixa etária, a singularidade da criança e o contexto familiar."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Preciso ter um diagnóstico para procurar atendimento psicológico?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Não. Você pode procurar atendimento para conversar sobre uma dificuldade, sofrimento emocional, mudanças de vida, autoconhecimento ou outras demandas psicológicas."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Os pais ou responsáveis participam do atendimento infantil?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A participação dos pais ou responsáveis pode fazer parte do acompanhamento infantil conforme a necessidade da criança e o planejamento clínico."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --azul: #3aa6b9;
+            --verde-agua: #79c9c5;
+            --azul-escuro: #216a78;
+            --fundo-suave: #f2f9f9;
+            --texto: #2c3537;
+            --texto-suave: #5a6e72;
+            --branco: #fff;
+            --borda: rgba(58,166,185,.19);
+            --sombra: 0 12px 35px rgba(33,106,120,.08);
+            --raio: 20px;
+            --titulo: 'Cormorant Garamond', Georgia, serif;
+            --corpo: 'Plus Jakarta Sans', Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--corpo);
+            background: #fff;
+            color: var(--texto);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        :focus-visible {
+            outline: 3px solid rgba(58,166,185,.55);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: fixed;
+            left: 12px;
+            top: -60px;
+            z-index: 2000;
+            background: var(--azul-escuro);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 0 0 10px 10px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Fundo e elementos decorativos */
+
+        .marca-dagua-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75vw;
+            max-width: 700px;
+            opacity: .05;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .fundo-aquarela-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-aquarela-1,
+        .bg-aquarela-2 {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .bg-aquarela-1 {
+            top: -100px;
+            right: -100px;
+            width: 550px;
+            height: 550px;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(58,166,185,.16),
+                    rgba(121,201,197,.06) 55%,
+                    transparent 75%
+                );
+            filter: blur(50px);
+            animation: pulsar 14s infinite alternate ease-in-out;
+        }
+
+        .bg-aquarela-2 {
+            bottom: 5%;
+            left: -120px;
+            width: 600px;
+            height: 600px;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(121,201,197,.14),
+                    transparent 70%
+                );
+            filter: blur(60px);
+            animation: pulsar 18s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes pulsar {
+            0% {
+                transform: scale(1) translate(0,0);
+                opacity: .7;
+            }
+
+            50% {
+                transform: scale(1.1) translate(-15px,15px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(.95) translate(15px,-10px);
+                opacity: .6;
+            }
+        }
+
+        /* Borboletas */
+
+        #canvas-borboleta {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .site-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        /* Navegação */
+
+        .navbar {
+            width: min(1100px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 25px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .logo-marca {
+            display: flex;
+            flex-direction: column;
+            color: var(--azul-escuro);
+            font-family: var(--titulo);
+            font-size: 1.7rem;
+            font-weight: 700;
+            line-height: 1.1;
+            text-decoration: none;
+        }
+
+        .logo-marca span {
+            margin-top: 5px;
+            color: var(--azul);
+            font-family: var(--corpo);
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: var(--azul-escuro);
+            font-size: .86rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color .25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--azul);
+        }
+
+        .nav-cta {
+            padding: 10px 17px;
+            border-radius: 50px;
+            background: var(--azul-escuro);
+            color: #fff !important;
+            box-shadow: 0 7px 20px rgba(33,106,120,.16);
+        }
+
+        /* Hero */
+
+        .hero-section {
+            min-height: 590px;
+            max-width: 1100px;
+            margin: 10px auto 40px;
+            padding: 35px 0 55px;
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .hero-text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 19px;
+        }
+
+        .hero-badge {
+            width: fit-content;
+            display: inline-flex;
+            align-items: center;
+            background: rgba(58,166,185,.11);
+            border: 1px solid rgba(58,166,185,.22);
+            border-radius: 30px;
+            color: var(--azul-escuro);
+            padding: 8px 17px;
+            font-size: .82rem;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            max-width: 700px;
+            color: var(--azul-escuro);
+            font-family: var(--titulo);
+            font-size: clamp(2.8rem, 5vw, 4.3rem);
+            font-weight: 700;
+            line-height: 1.08;
+        }
+
+        .hero-title span {
+            color: var(--azul);
+            font-style: italic;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: var(--texto-suave);
+            font-size: 1.04rem;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 5px;
+        }
+
+        .btn {
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 11px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: .88rem;
+            font-weight: 700;
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--azul-escuro);
+            color: #fff;
+            box-shadow: 0 9px 25px rgba(33,106,120,.20);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,.78);
+            border: 1px solid rgba(58,166,185,.28);
+            color: var(--azul-escuro);
+        }
+
+        .hero-visual-card {
+            padding: 25px;
+            background: rgba(255,255,255,.88);
+            border: 1px solid rgba(58,166,185,.20);
+            border-radius: 28px;
+            box-shadow: var(--sombra);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-img-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 330px;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 3px solid var(--azul);
+            border-radius: 20px;
+        }
+
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 405px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .hero-floating-badge {
+            position: absolute;
+            left: 50%;
+            bottom: 15px;
+            transform: translateX(-50%);
+            padding: 8px 18px;
+            background: rgba(33,106,120,.92);
+            border-radius: 50px;
+            color: #fff;
+            font-size: .82rem;
+            font-weight: 700;
+            white-space: nowrap;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Seções */
+
+        section.content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 65px 0;
+            opacity: 1;
+            transform: none;
+        }
+
+        /*
+         * A classe .reveal é adicionada somente pelo JavaScript.
+         * Assim, caso o JavaScript seja bloqueado, o conteúdo continua visível.
+         */
+        section.content-section.reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition:
+                opacity .75s ease,
+                transform .75s ease;
+        }
+
+        section.content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .titulo-com-icones {
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        .titulo-com-icones h2 {
+            color: var(--azul-escuro);
+            font-family: var(--titulo);
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .linha-divisor {
+            width: 75px;
+            height: 2px;
+            margin: 10px auto 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--azul),
+                    transparent
+                );
+        }
+
+        .box-sobre-mim,
+        .card-modalidade,
+        .faq-item,
+        .instagram-widget-wrapper {
+            background: rgba(255,255,255,.90);
+            border: 1px solid var(--borda);
+            box-shadow: 0 10px 30px rgba(58,166,185,.055);
+            backdrop-filter: blur(10px);
+        }
+
+        .box-sobre-mim {
+            padding: 42px;
+            border-radius: var(--raio);
+        }
+
+        .texto-sobre p {
+            margin-bottom: 16px;
+            color: var(--texto-suave);
+            font-size: 1rem;
+        }
+
+        .texto-sobre p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-destaque {
+            margin-top: 25px;
+            padding: 20px 22px;
+            border-left: 3px solid var(--azul);
+            background: var(--fundo-suave);
+            border-radius: 12px;
+        }
+
+        .info-destaque strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--azul-escuro);
+        }
+
+        .info-destaque span {
+            color: var(--texto-suave);
+            font-size: .92rem;
+        }
+
+        /* Serviços */
+
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card-servico {
+            padding: 30px 25px;
+            background: rgba(242,249,249,.82);
+            border: 1px solid var(--borda);
+            border-radius: 17px;
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease,
+                background .3s ease;
+        }
+
+        .card-servico:hover {
+            transform: translateY(-5px);
+            background: #fff;
+            box-shadow: 0 12px 28px rgba(58,166,185,.12);
+        }
+
+        .card-servico h3,
+        .card-modalidade h3,
+        .faq-item h3 {
+            color: var(--azul-escuro);
+            font-family: var(--titulo);
+            font-weight: 700;
+        }
+
+        .card-servico h3 {
+            margin-bottom: 11px;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .card-servico p,
+        .card-modalidade p,
+        .faq-item p {
+            color: var(--texto-suave);
+            font-size: .94rem;
+        }
+
+        .section-cta {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        /* Atendimento */
+
+        .grid-modalidades {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card-modalidade {
+            padding: 32px 28px;
+            border-radius: 17px;
+            text-align: center;
+        }
+
+        .card-modalidade h3 {
+            margin-bottom: 8px;
+            font-size: 1.65rem;
+        }
+
+        .endereco {
+            margin-top: 15px;
+            color: var(--azul-escuro);
+            font-size: .88rem;
+            font-weight: 600;
+        }
+
+        .map-link {
+            display: inline-flex;
+            margin-top: 14px;
+            color: var(--azul);
+            font-size: .85rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .map-link:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ */
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .faq-item {
+            padding: 22px 25px;
+            border-radius: 15px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 5px;
+            font-size: 1.35rem;
+            line-height: 1.3;
+        }
+
+        /* Instagram */
+
+        .instagram-widget-wrapper {
+            overflow: hidden;
+            padding: 15px;
+            border-radius: 18px;
+        }
+
+        .lightwidget-widget {
+            width: 100%;
+            min-height: 520px;
+            display: block;
+            border: 0;
+            overflow: hidden;
+        }
+
+        /* CTA */
+
+        .cta-final {
+            padding: 48px 28px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(58,166,185,.10),
+                    rgba(121,201,197,.16)
+                );
+            border: 1px solid rgba(58,166,185,.18);
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            margin-bottom: 12px;
+            color: var(--azul-escuro);
+            font-family: var(--titulo);
+            font-size: 2.5rem;
+            line-height: 1.1;
+        }
+
+        .cta-final p {
+            max-width: 650px;
+            margin: 0 auto 23px;
+            color: var(--texto-suave);
+        }
+
+        /* Ações flutuantes */
+
+        .container-flutuante {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .btn-flutuante-wsp,
+        .btn-flutuante-ig {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 11px 19px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: .88rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0,0,0,.14);
+            transition: transform .25s ease;
+        }
+
+        .btn-flutuante-wsp {
+            background:
+                linear-gradient(
+                    135deg,
+                    #25d366,
+                    #1ebc57
+                );
+            animation: pulse-green 2.8s infinite;
+        }
+
+        .btn-flutuante-ig {
+            background:
+                linear-gradient(
+                    45deg,
+                    #f09433 0%,
+                    #e6683c 25%,
+                    #dc2743 50%,
+                    #cc2366 75%,
+                    #bc1888 100%
+                );
+        }
+
+        .btn-flutuante-wsp:hover,
+        .btn-flutuante-ig:hover {
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        .icon-whatsapp {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            flex-shrink: 0;
+            fill: currentColor;
+        }
+
+        @keyframes pulse-green {
+            0%,
+            100% {
+                box-shadow: 0 8px 25px rgba(37,211,102,.28);
+            }
+
+            50% {
+                box-shadow:
+                    0 8px 25px rgba(37,211,102,.28),
+                    0 0 0 10px rgba(37,211,102,0);
+            }
+        }
+
+        /* Rodapé */
+
+        footer {
+            position: relative;
+            z-index: 10;
+            margin-top: 30px;
+            padding: 35px 20px;
+            background: var(--azul-escuro);
+            border-top: 3px solid var(--azul);
+            color: #fff;
+            text-align: center;
+            font-size: .9rem;
+        }
+
+        footer p {
+            margin-bottom: 7px;
+        }
+
+        footer .footer-copy {
+            margin-bottom: 0;
+            color: rgba(255,255,255,.78);
+            font-size: .82rem;
+        }
+
+        .footer-address {
+            max-width: 700px;
+            margin: 12px auto 0;
+            color: rgba(255,255,255,.84);
+        }
+
+        /* Responsividade */
+
+        @media (max-width: 900px) {
+            .hero-section {
+                width: min(calc(100% - 40px), 680px);
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .hero-badge,
+            .hero-description {
+                margin-inline: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .grid-servicos {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                width: calc(100% - 30px);
+                padding: 20px 0;
+            }
+
+            .logo-marca {
+                font-size: 1.5rem;
+            }
+
+            .hero-section {
+                width: calc(100% - 30px);
+                min-height: auto;
+                padding-top: 20px;
+            }
+
+            .hero-title {
+                font-size: clamp(2.55rem, 12vw, 3.4rem);
+            }
+
+            .hero-description {
+                font-size: .96rem;
+            }
+
+            section.content-section {
+                width: calc(100% - 30px);
+                padding: 50px 0;
+            }
+
+            .box-sobre-mim {
+                padding: 28px 22px;
+            }
+
+            .grid-modalidades {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo-com-icones h2,
+            .cta-final h2 {
+                font-size: 2.2rem;
+            }
+
+            .container-flutuante {
+                right: 13px;
+                bottom: 13px;
+            }
+
+            .btn-flutuante-wsp,
+            .btn-flutuante-ig {
+                padding: 10px 14px;
+                font-size: .80rem;
+            }
+
+            .lightwidget-widget {
+                min-height: 420px;
+            }
+
+            #canvas-borboleta {
+                opacity: .78;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            section.content-section,
+            section.content-section.reveal,
+            section.content-section.visible {
+                opacity: 1;
+                transform: none;
+            }
+
+            #canvas-borboleta {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#conteudo" class="skip-link">
+        Ir para o conteúdo
+    </a>
+
+    <img
+        src="marca-dagua.png"
+        alt=""
+        aria-hidden="true"
+        class="marca-dagua-bg"
+    >
+
+    <div
+        class="fundo-aquarela-container"
+        aria-hidden="true"
+    >
+        <div class="bg-aquarela-1"></div>
+        <div class="bg-aquarela-2"></div>
+    </div>
+
+    <canvas
+        id="canvas-borboleta"
+        aria-hidden="true"
+    ></canvas>
+
+    <div class="site-content">
+
+        <header>
+            <nav
+                class="navbar"
+                aria-label="Navegação principal"
+            >
+
+                <a
+                    href="#"
+                    class="logo-marca"
+                    aria-label="Dra. Edlayne Martins - início"
+                >
+                    Dra. Edlayne Martins
+                    <span>
+                        Psicóloga • CRP 13/10822
+                    </span>
+                </a>
+
+                <div class="nav-links">
+
+                    <a href="#sobre">
+                        Sobre
+                    </a>
+
+                    <a href="#atuacao">
+                        Atuação
+                    </a>
+
+                    <a href="#modalidades">
+                        Atendimento
+                    </a>
+
+                    <a href="#faq">
+                        Dúvidas
+                    </a>
+
+                    <a href="#instagram">
+                        Instagram
+                    </a>
+
+                    <a
+                        href="https://wa.me/5583987994358?text=Ol%C3%A1%2C%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta."
+                        class="nav-cta"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Agendar consulta
+                    </a>
+
+                </div>
+            </nav>
+        </header>
+
+        <main id="conteudo">
+
+            <!-- HERO -->
+
+            <section
+                class="hero-section"
+                aria-labelledby="titulo-principal"
+            >
+
+                <div class="hero-text-content">
+
+                    <div class="hero-badge">
+                        Psicologia Clínica • TCC • Neuropsicologia
+                    </div>
+
+                    <h1
+                        id="titulo-principal"
+                        class="hero-title"
+                    >
+                        Um espaço para compreender você e cuidar do seu
+                        <span>bem-estar emocional.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Atendimento psicológico com acolhimento, ética e fundamentação científica.
+                        Dra. Edlayne Martins é formada em Psicologia, especialista na abordagem
+                        da Terapia Cognitivo-Comportamental (TCC) e pós-graduanda em Neuropsicologia.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a
+                            class="btn btn-primary"
+                            href="https://wa.me/5583987994358?text=Ol%C3%A1%2C%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Agendar consulta
+                        </a>
+
+                        <a
+                            class="btn btn-secondary"
+                            href="#sobre"
+                        >
+                            Conhecer meu trabalho
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-visual-card">
+
+                    <div class="hero-img-wrapper">
+
+                        <img
+                            src="foto-edlayne.jpg"
+                            alt="Dra. Edlayne Martins, psicóloga clínica em João Pessoa"
+                            width="330"
+                            height="405"
+                            fetchpriority="high"
+                            decoding="async"
+                        >
+
+                        <div class="hero-floating-badge">
+                            Dra. Edlayne Martins
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- SOBRE -->
+
+            <section
+                id="sobre"
+                class="content-section"
+                aria-labelledby="titulo-sobre"
+            >
+
+                <div class="titulo-com-icones">
+
+                    <h2 id="titulo-sobre">
+                        Sobre Mim
+                    </h2>
+
+                    <div class="linha-divisor"></div>
+
+                </div>
+
+                <div class="box-sobre-mim">
+
+                    <div class="texto-sobre">
+
+                        <p>
+                            Olá! Sou a
+                            <strong>Dra. Edlayne Martins</strong>,
+                            psicóloga clínica, CRP 13/10822.
+                            Sou <strong>formada em Psicologia</strong>,
+                            <strong>especialista na abordagem da Terapia Cognitivo-Comportamental (TCC)</strong>
+                            e atualmente <strong>pós-graduanda em Neuropsicologia</strong>.
+                        </p>
+
+                        <p>
+                            Na prática clínica, busco compreender a relação entre pensamentos,
+                            emoções e comportamentos, utilizando os princípios da TCC para trabalhar
+                            diferentes demandas psicológicas de forma individualizada, ética e fundamentada.
+                        </p>
+
+                        <p>
+                            Também realizo atendimento psicológico para
+                            <strong>crianças de 3 a 12 anos</strong>,
+                            considerando as características de cada fase do desenvolvimento
+                            e a participação dos pais ou responsáveis quando necessária ao acompanhamento.
+                        </p>
+
+                        <div class="info-destaque">
+
+                            <strong>
+                                Atendimento presencial em João Pessoa e atendimento online
+                            </strong>
+
+                            <span>
+                                Consultório no Bairro dos Estados, com privacidade e ambiente adequado ao atendimento psicológico.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ATUAÇÃO -->
+
+            <section
+                id="atuacao"
+                class="content-section"
+                aria-labelledby="titulo-atuacao"
+            >
+
+                <div class="titulo-com-icones">
+
+                    <h2 id="titulo-atuacao">
+                        Como Posso Ajudar
+                    </h2>
+
+                    <div class="linha-divisor"></div>
+
+                </div>
+
+                <div class="grid-servicos">
+
+                    <article class="card-servico">
+
+                        <h3>
+                            Ansiedade e Regulação Emocional
+                        </h3>
+
+                        <p>
+                            Compreensão de pensamentos, emoções e comportamentos relacionados
+                            à ansiedade e desenvolvimento de estratégias para lidar com situações do cotidiano.
+                        </p>
+
+                    </article>
+
+                    <article class="card-servico">
+
+                        <h3>
+                            Atenção e Funções Cognitivas
+                        </h3>
+
+                        <p>
+                            Atenção, memória, foco e aspectos relacionados ao funcionamento
+                            cognitivo, dentro dos limites da atuação psicológica.
+                        </p>
+
+                    </article>
+
+                    <article class="card-servico">
+
+                        <h3>
+                            Autoconhecimento e Desenvolvimento
+                        </h3>
+
+                        <p>
+                            Reflexão sobre padrões de comportamento, relações, habilidades
+                            socioemocionais e formas de lidar com desafios e conflitos.
+                        </p>
+
+                    </article>
+
+                </div>
+
+                <div class="section-cta">
+
+                    <a
+                        class="btn btn-primary"
+                        href="https://wa.me/5583987994358?text=Ol%C3%A1%2C%20Dra.%20Edlayne!%20Gostaria%20de%20saber%20qual%20tipo%20de%20atendimento%20%C3%A9%20mais%20adequado%20para%20a%20minha%20demanda."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Conversar sobre meu atendimento
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- PSICOLOGIA INFANTIL -->
+
+            <section
+                id="infantil"
+                class="content-section"
+                aria-labelledby="titulo-infantil"
+            >
+
+                <div class="titulo-com-icones">
+
+                    <h2 id="titulo-infantil">
+                        Psicologia Infantil
+                    </h2>
+
+                    <div class="linha-divisor"></div>
+
+                </div>
+
+                <div class="box-sobre-mim">
+
+                    <div class="texto-sobre">
+
+                        <p>
+                            O atendimento infantil é voltado para
+                            <strong>crianças de 3 a 12 anos</strong>,
+                            respeitando a idade, o desenvolvimento e a singularidade de cada criança.
+                        </p>
+
+                        <p>
+                            O acompanhamento pode abordar dificuldades emocionais e comportamentais,
+                            habilidades socioemocionais, relações familiares, mudanças de rotina,
+                            adaptação e outras demandas apresentadas pela criança ou pelos responsáveis.
+                        </p>
+
+                        <p>
+                            A participação dos pais ou responsáveis pode integrar o processo terapêutico
+                            conforme a necessidade identificada durante o acompanhamento.
+                        </p>
+
+                        <div class="section-cta">
+
+                            <a
+                                class="btn btn-primary"
+                                href="https://wa.me/5583987994358?text=Ol%C3%A1%2C%20Dra.%20Edlayne!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento%20infantil."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Falar sobre atendimento infantil
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- MODALIDADES -->
+
+            <section
+                id="modalidades"
+                class="content-section"
+                aria-labelledby="titulo-modalidades"
+            >
+
+                <div class="titulo-com-icones">
+
+                    <h2 id="titulo-modalidades">
+                        Modalidades de Atendimento
+                    </h2>
+
+                    <div class="linha-divisor"></div>
+
+                </div>
+
+                <div class="grid-modalidades">
+
+                    <article class="card-modalidade">
+
+                        <h3>
+                            Atendimento Presencial
+                        </h3>
+
+                        <p>
+                            Atendimento em consultório no Bairro dos Estados, em João Pessoa - PB.
+                        </p>
+
+                        <div class="endereco">
+                            Av. Rio Grande do Sul, 1345 - Sala 904<br>
+                            Estados, João Pessoa - PB<br>
+                            CEP 58030-021
+                        </div>
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Av.%20Rio%20Grande%20do%20Sul%2C%201345%20-%20Sala%20904%2C%20Estados%2C%20Jo%C3%A3o%20Pessoa%20-%20PB%2C%2058030-021"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Como chegar →
+                        </a>
+
+                    </article>
+
+                    <article class="card-modalidade">
+
+                        <h3>
+                            Atendimento Online
+                        </h3>
+
+                        <p>
+                            Sessões por videochamada, com atendimento remoto,
+                            observadas as condições e a regulamentação aplicáveis.
+                        </p>
+
+                        <div class="endereco">
+                            Praticidade para realizar o acompanhamento de onde você estiver.
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- FAQ -->
+
+            <section
+                id="faq"
+                class="content-section"
+                aria-labelledby="titulo-faq"
+            >
+
+                <div class="titulo-com-icones">
+
+                    <h2 id="titulo-faq">
+                        Dúvidas Frequentes
+                    </h2>
+
+                    <div class="linha-divisor"></div>
+
+                </div>
+
+                <div class="faq-container">
+
+                    <article class="faq-item">
+
+                        <h3>
+                            Como faço para agendar uma consulta?
+                        </h3>
+
+                        <p>
+                            Entre em contato pelo WhatsApp para conversar sobre o atendimento
+                            e verificar a disponibilidade de horários.
+                        </p>
+
+                    </article>
+
+                    <article class="faq-item">
+
+                        <h3>
+                            O que acontece no primeiro contato?
+                        </h3>
+
+                        <p>
+                            O primeiro contato serve para entender sua demanda, esclarecer dúvidas
+                            sobre o atendimento e verificar a possibilidade de iniciar o acompanhamento.
+                        </p>
+
+                    </article>
+
+                    <article class="faq-item">
+
+                        <h3>
+                            Quanto tempo dura uma sessão?
+                        </h3>
+
+                        <p>
+                            Cada sessão dura aproximadamente 50 minutos.
+                        </p>
+
+                    </article>
+
+                    <article class="faq-item">
+
+                        <h3>
+                            Qual é a frequência das sessões?
+                        </h3>
+
+                        <p>
+                            A frequência é definida de acordo com as necessidades e os objetivos
+                            do acompanhamento psicológico.
+                        </p>
+
+                    </article>
+
+                    <article class="faq-item">
+
+                        <h3>
+                            Existe atendimento psicológico online?
+                        </h3>
+
+                        <p>
+                            Sim. Há atendimento por videochamada, observadas as condições
+                            e a regulamentação aplicáveis ao atendimento psicológico online.
+                        </p>
+
+                    </article>
+
+                    <article class="faq-item">
+
+                        <h3>
+                            Há atendimento psicológico para crianças?
+                        </h3>
+
+                        <p>
+                            Sim. Há atendimento para crianças de 3 a 12 anos,
+                            considerando a faixa etária, a singularidade da criança e o contexto familiar.
+                        </p>
+
+                    </article>
+
+                    <article class="faq-item">
+
+                        <h3>
+                            Preciso ter um diagnóstico para procurar atendimento?
+                        </h3>
+
+                        <p>
+                            Não. É possível procurar atendimento para conversar sobre uma dificuldade,
+                            sofrimento emocional, mudanças de vida, autoconhecimento ou outras demandas psicológicas.
+                        </p>
+
+                    </article>
+
+                    <article class="faq-item">
+
+                        <h3>
+                            Os pais ou responsáveis participam do atendimento infantil?
+                        </h3>
+
+                        <p>
+                            A participação pode fazer parte do acompanhamento conforme a necessidade
+                            da criança e o planejamento clínico.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- INSTAGRAM -->
+
+            <section
+                id="instagram"
+                class="content-section"
+                aria-labelledby="titulo-instagram"
+            >
+
+                <div class="titulo-com-icones">
+
+                    <h2 id="titulo-instagram">
+                        Publicações Recentes
+                    </h2>
+
+                    <div class="linha-divisor"></div>
+
+                </div>
+
+                <div class="instagram-widget-wrapper">
+
+                    <iframe
+                        src="https://lightwidget.com/widgets/98975395735354a98ccd0262bb8ebe30.html"
+                        scrolling="no"
+                        allowtransparency="true"
+                        title="Publicações do Instagram da Dra. Edlayne Martins"
+                        class="lightwidget-widget"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+
+                </div>
+
+            </section>
+
+            <!-- CTA FINAL -->
+
+            <section
+                class="content-section"
+                aria-label="Agendamento"
+            >
+
+                <div class="cta-final">
+
+                    <h2>
+                        Vamos conversar?
+                    </h2>
+
+                    <p>
+                        Se você deseja saber mais sobre o atendimento psicológico,
+                        entre em contato para conhecer as possibilidades de acompanhamento.
+                    </p>
+
+                    <a
+                        class="btn btn-primary"
+                        href="https://wa.me/5583987994358?text=Ol%C3%A1%2C%20Dra.%20Edlayne!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Falar pelo WhatsApp
+                    </a>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- BOTÕES FLUTUANTES -->
+
+        <div
+            class="container-flutuante"
+            aria-label="Ações rápidas"
+        >
+
+            <a
+                href="https://wa.me/5583987994358?text=Ol%C3%A1%2C%20Dra.%20Edlayne!%20Gostaria%20de%20agendar%20uma%20consulta."
+                class="btn-flutuante-wsp"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Agendar consulta pelo WhatsApp"
+            >
+
+                <svg
+                    class="icon-whatsapp"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+
+                <span>
+                    Agendar Consulta
+                </span>
+
+            </a>
+
+            <a
+                href="https://www.instagram.com/psiedlaynemartinss/"
+                class="btn-flutuante-ig"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram da Dra. Edlayne Martins"
+            >
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <rect
+                        x="2"
+                        y="2"
+                        width="20"
+                        height="20"
+                        rx="5"
+                    ></rect>
+
+                    <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    ></path>
+
+                    <line
+                        x1="17.5"
+                        y1="6.5"
+                        x2="17.51"
+                        y2="6.5"
+                    ></line>
+                </svg>
+
+                <span>
+                    Instagram
+                </span>
+
+            </a>
+
+        </div>
+
+        <!-- RODAPÉ -->
+
+        <footer>
+
+            <p>
+                <strong>Dra. Edlayne Martins</strong>
+                • Psicóloga Clínica •
+                TCC • Pós-graduanda em Neuropsicologia •
+                CRP 13/10822
+            </p>
+
+            <p class="footer-address">
+                Av. Rio Grande do Sul, 1345 - Sala 904 •
+                Estados • João Pessoa - PB •
+                CEP 58030-021
+            </p>
+
+            <p class="footer-copy">
+                © 2026 Dra. Edlayne Martins. Todos os direitos reservados.
+            </p>
+
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+    (() => {
+        'use strict';
+
+        /*
+         * ==========================================
+         * SCROLL REVEAL
+         * ==========================================
+         */
+
+        const reducedMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        const sections = document.querySelectorAll(
+            'section.content-section'
+        );
+
+        if (
+            reducedMotion ||
+            !('IntersectionObserver' in window)
+        ) {
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+        } else {
+            /*
+             * A classe reveal só é adicionada quando sabemos
+             * que o JavaScript está funcionando.
+             */
+            sections.forEach(section => {
+                section.classList.add('reveal');
+            });
+
+            const observer = new IntersectionObserver(
+                (entries, obs) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        entry.target.classList.add('visible');
+
+                        obs.unobserve(entry.target);
+                    });
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        /*
+         * ==========================================
+         * BORBOLETAS
+         * ==========================================
+         */
+
+        const canvas = document.getElementById(
+            'canvas-borboleta'
+        );
+
+        /*
+         * Não executar a animação quando o usuário
+         * prefere reduzir movimentos.
+         */
+        if (!canvas || reducedMotion) {
+            return;
+        }
+
+        const ctx = canvas.getContext(
+            '2d',
+            {
+                alpha: true
+            }
+        );
+
+        if (!ctx) {
+            return;
+        }
+
+        let animationFrame = null;
+        let running = false;
+
+        const colors = [
+            'rgba(58,166,185,',
+            'rgba(121,201,197,',
+            'rgba(175,238,238,',
+            'rgba(255,182,193,'
+        ];
+
+        const butterflies = [
+            {
+                x: window.innerWidth * 0.15,
+                y: window.innerHeight * 0.20,
+                targetX: window.innerWidth * 0.80,
+                targetY: window.innerHeight * 0.35,
+                angle: 0,
+                flap: 0,
+                flapSpeed: 0.070,
+                driftTime: Math.random() * 100,
+                scale: 1,
+                colorWing1: 'rgba(58,166,185,.75)',
+                colorWing2: 'rgba(121,201,197,.70)'
+            },
+
+            {
+                x: window.innerWidth * 0.80,
+                y: window.innerHeight * 0.50,
+                targetX: window.innerWidth * 0.25,
+                targetY: window.innerHeight * 0.20,
+                angle: 0,
+                flap: 2,
+                flapSpeed: 0.085,
+                driftTime: Math.random() * 100,
+                scale: 0.85,
+                colorWing1: 'rgba(121,201,197,.75)',
+                colorWing2: 'rgba(58,166,185,.70)'
+            }
+        ];
+
+        const pollens = [];
+
+        function getMaxPollens() {
+            return window.innerWidth < 700
+                ? 38
+                : 75;
+        }
+
+        /*
+         * ==========================================
+         * CANVAS
+         * ==========================================
+         */
+
+        function resizeCanvas() {
+            const dpr = Math.min(
+                window.devicePixelRatio || 1,
+                1.5
+            );
+
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            canvas.width = Math.floor(
+                width * dpr
+            );
+
+            canvas.height = Math.floor(
+                height * dpr
+            );
+
+            canvas.style.width =
+                `${width}px`;
+
+            canvas.style.height =
+                `${height}px`;
+
+            ctx.setTransform(
+                dpr,
+                0,
+                0,
+                dpr,
+                0,
+                0
+            );
+        }
+
+        /*
+         * ==========================================
+         * NOVO DESTINO
+         * ==========================================
+         */
+
+        function newTarget(butterfly) {
+            const margin = 80;
+
+            const availableWidth =
+                Math.max(
+                    1,
+                    window.innerWidth -
+                    margin * 2
+                );
+
+            const availableHeight =
+                Math.max(
+                    1,
+                    window.innerHeight -
+                    margin * 2
+                );
+
+            butterfly.targetX =
+                Math.random() *
+                availableWidth +
+                margin;
+
+            butterfly.targetY =
+                Math.random() *
+                availableHeight +
+                margin;
+        }
+
+        /*
+         * ==========================================
+         * PARTÍCULAS
+         * ==========================================
+         */
+
+        function createPollen(x, y) {
+            const maxPollens =
+                getMaxPollens();
+
+            if (
+                pollens.length >= maxPollens ||
+                Math.random() > 0.20
+            ) {
+                return;
+            }
+
+            pollens.push({
+                x:
+                    x +
+                    (Math.random() - 0.5) * 8,
+
+                y:
+                    y +
+                    (Math.random() - 0.5) * 8,
+
+                vx:
+                    (Math.random() - 0.5) * 0.45,
+
+                vy:
+                    Math.random() * 0.65 +
+                    0.15,
+
+                radius:
+                    Math.random() * 1.6 +
+                    0.7,
+
+                colorBase:
+                    colors[
+                        Math.floor(
+                            Math.random() *
+                            colors.length
+                        )
+                    ],
+
+                alpha: 0.62,
+
+                decay:
+                    Math.random() * 0.007 +
+                    0.0035
+            });
+        }
+
+        /*
+         * ==========================================
+         * DESENHO DAS ASAS
+         * ==========================================
+         */
+
+        function drawWingHalf(
+            scaleX,
+            scale,
+            color1,
+            color2
+        ) {
+            ctx.save();
+
+            ctx.scale(
+                scaleX * scale,
+                scale
+            );
+
+            ctx.beginPath();
+
+            ctx.moveTo(0, 0);
+
+            ctx.bezierCurveTo(
+                -18,
+                -20,
+                -28,
+                -8,
+                -16,
+                8
+            );
+
+            ctx.bezierCurveTo(
+                -10,
+                12,
+                -4,
+                8,
+                0,
+                0
+            );
+
+            ctx.fillStyle = color1;
+
+            ctx.fill();
+
+            ctx.beginPath();
+
+            ctx.moveTo(0, 2);
+
+            ctx.bezierCurveTo(
+                -16,
+                8,
+                -20,
+                24,
+                -4,
+                18
+            );
+
+            ctx.bezierCurveTo(
+                -1,
+                14,
+                0,
+                6,
+                0,
+                2
+            );
+
+            ctx.fillStyle = color2;
+
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        /*
+         * ==========================================
+         * DESENHO DA BORBOLETA
+         * ==========================================
+         */
+
+        function drawButterfly(butterfly) {
+            ctx.save();
+
+            ctx.translate(
+                butterfly.x,
+                butterfly.y
+            );
+
+            ctx.rotate(
+                butterfly.angle
+            );
+
+            const wingScaleX =
+                Math.max(
+                    0.12,
+                    Math.abs(
+                        Math.sin(
+                            butterfly.flap
+                        )
+                    )
+                );
+
+            drawWingHalf(
+                wingScaleX,
+                butterfly.scale,
+                butterfly.colorWing1,
+                butterfly.colorWing2
+            );
+
+            drawWingHalf(
+                -wingScaleX,
+                butterfly.scale,
+                butterfly.colorWing1,
+                butterfly.colorWing2
+            );
+
+            /*
+             * Corpo da borboleta
+             */
+            ctx.beginPath();
+
+            ctx.ellipse(
+                0,
+                2,
+                1.2 *
+                    butterfly.scale,
+                9 *
+                    butterfly.scale,
+                0,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fillStyle =
+                '#216a78';
+
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        /*
+         * ==========================================
+         * ANIMAÇÃO
+         * ==========================================
+         */
+
+        function animate() {
+            if (!running) {
+                return;
+            }
+
+            ctx.clearRect(
+                0,
+                0,
+                window.innerWidth,
+                window.innerHeight
+            );
+
+            butterflies.forEach(
+                butterfly => {
+                    butterfly.driftTime +=
+                        0.018;
+
+                    const driftX =
+                        Math.sin(
+                            butterfly.driftTime *
+                            0.7
+                        ) * 0.8;
+
+                    const driftY =
+                        Math.cos(
+                            butterfly.driftTime *
+                            0.5
+                        ) * 0.8;
+
+                    const dx =
+                        butterfly.targetX +
+                        driftX -
+                        butterfly.x;
+
+                    const dy =
+                        butterfly.targetY +
+                        driftY -
+                        butterfly.y;
+
+                    const distance =
+                        Math.hypot(
+                            dx,
+                            dy
+                        );
+
+                    if (distance < 45) {
+                        newTarget(
+                            butterfly
+                        );
+                    }
+
+                    butterfly.x +=
+                        dx * 0.0045;
+
+                    butterfly.y +=
+                        dy * 0.0045;
+
+                    const desiredAngle =
+                        Math.atan2(
+                            dy,
+                            dx
+                        ) +
+                        Math.PI / 2;
+
+                    let difference =
+                        desiredAngle -
+                        butterfly.angle;
+
+                    while (
+                        difference <
+                        -Math.PI
+                    ) {
+                        difference +=
+                            Math.PI * 2;
+                    }
+
+                    while (
+                        difference >
+                        Math.PI
+                    ) {
+                        difference -=
+                            Math.PI * 2;
+                    }
+
+                    butterfly.angle +=
+                        difference *
+                        0.025;
+
+                    butterfly.flap +=
+                        butterfly.flapSpeed;
+
+                    createPollen(
+                        butterfly.x,
+                        butterfly.y
+                    );
+
+                    drawButterfly(
+                        butterfly
+                    );
+                }
+            );
+
+            /*
+             * Partículas
+             */
+            for (
+                let i = pollens.length - 1;
+                i >= 0;
+                i--
+            ) {
+                const pollen =
+                    pollens[i];
+
+                pollen.x +=
+                    pollen.vx;
+
+                pollen.y +=
+                    pollen.vy;
+
+                pollen.alpha -=
+                    pollen.decay;
+
+                if (
+                    pollen.alpha <= 0
+                ) {
+                    pollens.splice(
+                        i,
+                        1
+                    );
+
+                    continue;
+                }
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    pollen.x,
+                    pollen.y,
+                    pollen.radius,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle =
+                    pollen.colorBase +
+                    pollen.alpha +
+                    ')';
+
+                ctx.fill();
+            }
+
+            animationFrame =
+                requestAnimationFrame(
+                    animate
+                );
+        }
+
+        /*
+         * ==========================================
+         * PARAR ANIMAÇÃO
+         * ==========================================
+         */
+
+        function stopAnimation() {
+            if (!running) {
+                return;
+            }
+
+            running = false;
+
+            if (
+                animationFrame !== null
+            ) {
+                cancelAnimationFrame(
+                    animationFrame
+                );
+
+                animationFrame = null;
+            }
+        }
+
+        /*
+         * ==========================================
+         * INICIAR ANIMAÇÃO
+         * ==========================================
+         */
+
+        function startAnimation() {
+            if (running) {
+                return;
+            }
+
+            running = true;
+
+            animate();
+        }
+
+        /*
+         * ==========================================
+         * INICIALIZAÇÃO
+         * ==========================================
+         */
+
+        resizeCanvas();
+
+        window.addEventListener(
+            'resize',
+            resizeCanvas,
+            {
+                passive: true
+            }
+        );
+
+        /*
+         * Pausa a animação quando a aba
+         * não está visível.
+         */
+        document.addEventListener(
+            'visibilitychange',
+            () => {
+                if (document.hidden) {
+                    stopAnimation();
+                } else {
+                    startAnimation();
+                }
+            }
+        );
+
+        startAnimation();
+
+    })();
+    </script>
+
+</body>
+</html>
+'''
+
+path = Path(
+    "/mnt/data/site_dra_edlayne_martins_final_revisado.html"
+)
+
+path.write_text(
+    html,
+    encoding="utf-8"
+)
+
+print(
+    f"Arquivo criado: {path}"
+)
+
+print(
+    f"Tamanho: {path.stat().st_size:,} bytes"
+)
+```
 
