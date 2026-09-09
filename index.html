@@ -2349,21 +2349,3 @@
 </html>
 '''
 
-path = Path(
-    "/mnt/data/site_dra_edlayne_martins_final_revisado.html"
-)
-
-path.write_text(
-    html,
-    encoding="utf-8"
-)
-
-print(
-    f"Arquivo criado: {path}"
-)
-
-print(
-    f"Tamanho: {path.stat().st_size:,} bytes"
-)
-```
-
